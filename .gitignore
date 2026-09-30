@@ -1,0 +1,17 @@
+# Local design audits and QA captures
+anti-slop/
+
+# Superseded prototype stylesheet and concept imagery
+dist/styles.css
+dist/assets/forest-landscape.png
+dist/assets/forestpro-wildlife-group.png
+dist/assets/orangutan-3d.png
+dist/assets/orangutan-walk-sprite.png
+dist/assets/rangkong-3d.png
+dist/assets/rangkong-approach-sequence.png
+dist/assets/rangkong-flight-sprite.png
+
+# Unused logo variants
+dist/assets/Logo/Fpr - Logo HiRes Black.png
+dist/assets/Logo/Fpr - Logo HiRes Green.png
+dist/assets/Logo/Fpr - Logo HiRes White.png
