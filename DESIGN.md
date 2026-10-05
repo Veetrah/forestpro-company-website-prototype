@@ -4,13 +4,13 @@ Theme: **Clean Forestry Intelligence**.
 
 The website presents ForestPro as an operational forestry management partner. Its story moves from forest potential to the management capacity required to develop that potential responsibly.
 
-- Color: pure white background, charcoal `#2B2E2C` text, muted gray body copy, and `#3B8D41` as the only accent.
+- Color: pure white background, charcoal `#2B2E2C` text, muted gray body copy, `#3B8D41` as the accent, and accessible forest field `#2F7435` for full green chapters.
 - Typography: self-hosted Aileron Semibold for the headline and Tahoma for every supporting line.
 - Layout: the field team anchors the hero. Downstream sections change composition to follow the story instead of repeating a card grid.
 - Imagery: the owner's supplied transparent field-team photo is used without generative alteration.
 - Motion: scroll choreography separates potential from management capacity, then brings both into one ForestPro system. Motion explains the relationship and stops when the story lands.
 - Identity: the supplied full-color ForestPro HiRes logo sits at the upper-left edge.
-- Language: all public-facing website copy is English.
+- Language: English remains the default and no-script fallback. A compact navbar control switches the complete experience to Bahasa Indonesia and preserves the visitor's choice locally.
 - Dial: ENERGY 2 / RHYTHM 3 / MOTION 3.
 
 ## Decision reasons
@@ -20,8 +20,12 @@ The website presents ForestPro as an operational forestry management partner. It
 - The navigation behaves as a field index: a fixed white strip keeps the long-form story reachable, while a one-pixel green progress line shows movement from forest potential to responsible practice.
 - Desktop navigation exposes the five real homepage destinations directly. Tablet and phone layouts replace the row with a clearly labelled Menu control and a full-width ruled index so links remain readable and comfortably tappable.
 - The current section is communicated by text weight and contrast. Green stays on the progress line and the active mobile destination, preventing the accent from flooding every navigation label.
+- The desktop language control shows the active language as a functional flag, then exposes both English and Bahasa Indonesia by name in a compact selector. This removes the previous destination-state ambiguity.
+- On tablet and phone layouts, language selection moves into the navigation panel as two full-width rows. Removing it from the compact header keeps the logo and Menu control clear at the narrowest viewport.
+- Bahasa Indonesia uses authored forestry terminology rather than literal machine translation so the company profile remains credible in both languages.
 - Aileron carries the large editorial statements; Tahoma keeps operational detail familiar and readable.
 - The comparison is typographic rather than card-based because the content describes two sides of one system, not ten separate features.
+- The potential side mirrors the three established Focus Areas so the early promise and the later operational scope use one consistent vocabulary.
 - The vertical green axis separates the two responsibilities and becomes the visual bridge that ForestPro resolves.
 - The second chapter is titled "From Potential to Practice" because it shifts the story from a negative gap to ForestPro's commercial role in making responsible management operational.
 - The second chapter stays typographic so the transition from forest potential to management capability remains direct and uncluttered.
@@ -33,6 +37,8 @@ The website presents ForestPro as an operational forestry management partner. It
 - ForestPro's role, operational scope, and working principles live in a separate profile section as three numbered editorial rows rather than cards or a compressed data strip. Formal capability names are reserved for the future What We Do section.
 - On wide screens, Who We Are uses a short pinned reveal: the headline lands first, then the two narrative paragraphs. The operating-profile rows reveal in native document flow with restrained line-draw motion so the section remains legible on touch devices.
 - The operating profile closes the third narrative chapter with a `03 / Who we are` footer, preserving `04` for the future What We Do chapter.
+- Our Direction is a compact editorial statement after Operating Profile. The sourced vision carries one controlled focal scale, while the three sourced mission categories share a single green baseline instead of repeating oversized ruled rows. On phones, those commitments become three native-flow entries with restrained dividers.
+- Corporate Values remains a separate white-ground chapter. Seven sourced values use open typographic rows rather than icons, cards, or the circular diagram from the PDF, keeping the content formal without inheriting a presentation-slide composition.
 - The supplied field-team photograph forms an editorial bridge between the Who We Are narrative and Operating Profile. On wide screens it becomes a full-grid 3:1 panoramic field window using the same left-to-right mask reveal as the narrow-screen image; on narrow screens it remains full-width and uncropped in its native 3:2 ratio so every team member stays visible.
 - What We Do is the first sustained color chapter, using solid `#2F7435` with white and translucent-white typography to reset the visual rhythm without turning the full website dark.
 - The chapter presents the three company-profile capabilities as a connected sequence: Strategic Consulting, Integrated End-to-End Implementation, and System Development. Homepage language remains outcome-led; detailed regulatory and technical scopes are reserved for future service pages.
@@ -58,8 +64,13 @@ The website presents ForestPro as an operational forestry management partner. It
 - The Sustainable Outcomes closing states that sustainability is how forestry moves forward, positioning sustainability as the operating principle behind the industry rather than presenting ForestPro as a conservation or restoration organization. A full-viewport white field keeps the chapter inside the site's clean ground plane while giving the statement room to land.
 - The closing resolves the ESG chapter with three green ruled editorial lines for Environmental Stewardship, Community & Shared Value, and Responsible Governance. Green marks the structural connection and the phrase "moves forward" instead of becoming another full-screen color chapter.
 - The three closing lines reveal in sequence after the headline and remain static once they land. On phones they stack into a compact vertical index, preserving the full statement above them.
+- The three-panel Focus Areas overview remains the only public-facing focus treatment. Detailed technical scope is deferred rather than forced into the homepage narrative.
 - The final CTA follows the sustainability statement as a second white editorial field, using scale, spacing, and commercial intent rather than another background-color switch to mark the transition.
 - On wide screens, the CTA places its headline and action copy on opposite sides of the grid. On phones, both reflow into one native-scroll column with a full-width action target.
 - CTA motion reveals the headline, supporting copy, and action in reading order, then stops. Reduced-motion users receive the same content without clipping or transforms.
 - The CTA now uses ForestPro's supplied email address as its primary action. A restrained ruled contact index keeps the official email, Instagram, and LinkedIn destinations visible as text, with compact Iconify marks supporting rather than replacing each label.
-- The footer stays minimal and functional: the supplied ForestPro logo, the established tagline, and a real back-to-top link.
+- The footer works as a terminal field index for the long-form page. An asymmetric brand block holds the supplied white ForestPro logo and established tagline, while compact ruled lists expose only real page destinations and verified contact channels.
+- The existing full green fields use one accessible `#2F7435` token, while `#3B8D41` remains the visible accent on white surfaces. This standardizes the greens without converting white editorial sections into additional green blocks.
+- The large tagline gives the page one final brand-led focal point without introducing a new claim. White type and structure keep the closing field crisp without introducing another accent color.
+- Footer navigation remains text-led, while verified contact destinations use outlined actions because they are higher-intent outbound choices. Channel icons identify concrete services rather than acting as decoration.
+- Tablet layouts separate the brand from two balanced link groups. Phone layouts become one native-scroll column with 52-pixel link rows, preserving clear reading order and comfortable tap targets.

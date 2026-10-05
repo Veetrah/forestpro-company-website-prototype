@@ -27,21 +27,45 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
 
   <header class="site-header" data-site-nav>
     <div class="site-nav-inner">
-      <a class="logo-placeholder" href="#top" aria-label="ForestPro, back to top">
+      <a class="logo-placeholder" href="#top" aria-label="ForestPro, back to top"
+        data-i18n-aria="common.backToTopLabel">
         <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes.png" alt="ForestPro" />
       </a>
 
-      <nav class="site-nav-links" aria-label="Primary navigation">
-        <a href="#who-we-are" data-nav-link>Who We Are</a>
-        <a href="#what-we-do" data-nav-link>What We Do</a>
-        <a href="#focus-areas" data-nav-link>Our Focus</a>
-        <a href="#sustainable-outcomes" data-nav-link>Sustainability</a>
-        <a href="#contact" data-nav-link>Contact</a>
+      <nav class="site-nav-links" aria-label="Primary navigation" data-i18n-aria="nav.primaryLabel">
+        <a href="#who-we-are" data-nav-link data-i18n="nav.who">Who We Are</a>
+        <a href="#what-we-do" data-nav-link data-i18n="nav.what">What We Do</a>
+        <a href="#focus-areas" data-nav-link data-i18n="nav.focus">Our Focus</a>
+        <a href="#sustainable-outcomes" data-nav-link data-i18n="nav.sustainability">Sustainability</a>
+        <a href="#contact" data-nav-link data-i18n="nav.contact">Contact</a>
       </nav>
+
+      <div class="site-language-picker site-language-picker-desktop" data-language-picker>
+        <button class="site-language-toggle" type="button" aria-expanded="false" aria-controls="site-language-menu"
+          aria-label="Change language. Current: English" data-language-toggle>
+          <iconify-icon icon="flag:gb-4x3" aria-hidden="true" data-language-current-flag></iconify-icon>
+          <iconify-icon class="site-language-chevron" icon="lucide:chevron-down" aria-hidden="true"></iconify-icon>
+        </button>
+
+        <div class="site-language-menu" id="site-language-menu" role="group" aria-label="Language options"
+          data-i18n-aria="language.optionsLabel" data-language-menu aria-hidden="true" inert>
+          <button type="button" aria-pressed="true" data-language-option="en">
+            <iconify-icon icon="flag:gb-4x3" aria-hidden="true"></iconify-icon>
+            <span>English</span>
+            <iconify-icon class="site-language-check" icon="lucide:check" aria-hidden="true"></iconify-icon>
+          </button>
+          <button type="button" aria-pressed="false" data-language-option="id">
+            <iconify-icon icon="flag:id-4x3" aria-hidden="true"></iconify-icon>
+            <span>Bahasa Indonesia</span>
+            <iconify-icon class="site-language-check" icon="lucide:check" aria-hidden="true"></iconify-icon>
+          </button>
+        </div>
+      </div>
+      <span class="sr-only" aria-live="polite" data-language-status></span>
 
       <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-panel"
         data-nav-toggle>
@@ -50,13 +74,30 @@
     </div>
 
     <div class="site-nav-panel" id="site-nav-panel" aria-hidden="true" data-nav-panel inert>
-      <nav class="site-nav-panel-links" aria-label="Mobile navigation">
-        <a href="#who-we-are" data-nav-link>Who We Are</a>
-        <a href="#what-we-do" data-nav-link>What We Do</a>
-        <a href="#focus-areas" data-nav-link>Our Focus</a>
-        <a href="#sustainable-outcomes" data-nav-link>Sustainability</a>
-        <a href="#contact" data-nav-link>Contact</a>
+      <nav class="site-nav-panel-links" aria-label="Mobile navigation" data-i18n-aria="nav.mobileLabel">
+        <a href="#who-we-are" data-nav-link data-i18n="nav.who">Who We Are</a>
+        <a href="#what-we-do" data-nav-link data-i18n="nav.what">What We Do</a>
+        <a href="#focus-areas" data-nav-link data-i18n="nav.focus">Our Focus</a>
+        <a href="#sustainable-outcomes" data-nav-link data-i18n="nav.sustainability">Sustainability</a>
+        <a href="#contact" data-nav-link data-i18n="nav.contact">Contact</a>
       </nav>
+
+      <div class="site-language-panel" role="group" aria-label="Language options"
+        data-i18n-aria="language.optionsLabel">
+        <p data-i18n="language.label">Language</p>
+        <div class="site-language-panel-options">
+          <button type="button" aria-pressed="true" data-language-option="en">
+            <iconify-icon icon="flag:gb-4x3" aria-hidden="true"></iconify-icon>
+            <span>English</span>
+            <iconify-icon class="site-language-check" icon="lucide:check" aria-hidden="true"></iconify-icon>
+          </button>
+          <button type="button" aria-pressed="false" data-language-option="id">
+            <iconify-icon icon="flag:id-4x3" aria-hidden="true"></iconify-icon>
+            <span>Bahasa Indonesia</span>
+            <iconify-icon class="site-language-check" icon="lucide:check" aria-hidden="true"></iconify-icon>
+          </button>
+        </div>
+      </div>
     </div>
 
     <span class="site-nav-progress" aria-hidden="true"><span></span></span>
@@ -65,22 +106,23 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title" data-scroll-hero>
       <div class="hero-headline">
-        <h1 id="hero-title">Towards <em>Greener</em> Future</h1>
+        <h1 id="hero-title" data-i18n-html="hero.title">Towards <em>Greener</em> Future</h1>
       </div>
 
       <figure class="wildlife-visual">
-        <img src="./assets/hero.png" alt="Two field professionals in safety equipment assessing a forest area" />
+        <img src="./assets/hero.png" alt="Two field professionals in safety equipment assessing a forest area"
+          data-i18n-alt="hero.imageAlt" />
       </figure>
 
       <div class="hero-copy">
-        <p>
+        <p data-i18n="hero.copy">
           ForestPro develops the potential of forest areas through relevant innovation and regulatory compliance, with
           long-term sustainability guiding every decision.
         </p>
-        <div class="principle-lines" aria-label="ForestPro principles">
-          <span>Relevant innovation</span>
-          <span>Compliance in practice</span>
-          <span>Long-term stewardship</span>
+        <div class="principle-lines" aria-label="ForestPro principles" data-i18n-aria="hero.principlesLabel">
+          <span data-i18n="hero.principleInnovation">Relevant innovation</span>
+          <span data-i18n="hero.principleCompliance">Compliance in practice</span>
+          <span data-i18n="hero.principleStewardship">Long-term stewardship</span>
         </div>
       </div>
     </section>
@@ -89,24 +131,24 @@
       <div class="gap-scroll">
         <div class="gap-sticky">
           <div class="gap-intro">
-            <p class="section-label">From Potential to Practice</p>
-            <h2 id="gap-title">Strong forest potential needs equally strong management.</h2>
+            <p class="section-label" data-i18n="gap.label">From Potential to Practice</p>
+            <h2 id="gap-title" data-i18n="gap.title">Strong forest potential needs equally strong management.</h2>
             <div class="gap-intro-context">
-              <p>
+              <p data-i18n="gap.copy">
                 Responsible forest operations depend on more than the resources within an area. Permits, planning,
                 field teams, community participation, and continuous monitoring need to work as one.
               </p>
             </div>
           </div>
 
-          <div class="gap-comparison" aria-label="Forest potential and responsible management requirements">
+          <div class="gap-comparison" aria-label="Forest potential and responsible management requirements"
+            data-i18n-aria="gap.comparisonLabel">
             <article class="gap-side gap-side-potential" data-gap-beat="potential">
-              <p class="gap-side-title">What the forest can support</p>
+              <p class="gap-side-title" data-i18n="gap.potentialTitle">What forest areas can support</p>
               <ul>
-                <li>Area Utilisation</li>
-                <li>Timber Forest Products</li>
-                <li>Non-Timber Forest Products</li>
-                <li>Environmental Services</li>
+                <li data-i18n="gap.potentialArea">Forest Area Utilization</li>
+                <li data-i18n="gap.potentialCommodities">Forest-Based Commodities</li>
+                <li data-i18n="gap.potentialServices">Environmental Services</li>
               </ul>
             </article>
 
@@ -115,19 +157,19 @@
             </div>
 
             <article class="gap-side gap-side-management" data-gap-beat="management">
-              <p class="gap-side-title">What responsible management requires</p>
+              <p class="gap-side-title" data-i18n="gap.managementTitle">What responsible management requires</p>
               <ul>
-                <li>Planning and compliance</li>
-                <li>Field teams and infrastructure</li>
-                <li>Community participation and capacity</li>
-                <li>Monitoring and certification</li>
+                <li data-i18n="gap.managementPlanning">Planning and compliance</li>
+                <li data-i18n="gap.managementField">Field teams and infrastructure</li>
+                <li data-i18n="gap.managementCommunity">Community participation and capacity</li>
+                <li data-i18n="gap.managementMonitoring">Monitoring and certification</li>
               </ul>
             </article>
           </div>
 
           <div class="gap-chapter" aria-hidden="true">
             <span>02</span>
-            <span>Potential to practice</span>
+            <span data-i18n="gap.chapter">Potential to practice</span>
           </div>
         </div>
       </div>
@@ -135,15 +177,15 @@
 
     <section class="who-we-are" id="who-we-are" aria-labelledby="who-we-are-title" data-who-we-are>
       <div class="who-we-are-inner">
-        <p class="section-label">Who We Are</p>
-        <h2 id="who-we-are-title">ForestPro turns forest potential into responsible practice.</h2>
+        <p class="section-label" data-i18n="who.label">Who We Are</p>
+        <h2 id="who-we-are-title" data-i18n="who.title">ForestPro turns forest potential into responsible practice.</h2>
         <div class="who-we-are-copy">
-          <p>
+          <p data-i18n="who.copyPrimary">
             ForestPro is a strategic forestry partner for forest-area permit holders and landowners in Forest and
             Other Land Uses. We help clients operate legally and efficiently while aligning business sustainability
             with national policy and global environmental standards.
           </p>
-          <p>
+          <p data-i18n="who.copySecondary">
             Our professional team tailors each engagement to the client's needs, supporting the work from planning
             through field operations.
           </p>
@@ -151,12 +193,14 @@
       </div>
     </section>
 
-    <section class="field-team-story" aria-label="ForestPro field team" data-field-team-story>
+    <section class="field-team-story" aria-label="ForestPro field team" data-i18n-aria="fieldTeam.sectionLabel"
+      data-field-team-story>
       <div class="field-team-story-frame">
         <figure class="field-team-story-visual">
           <div class="field-team-story-media">
             <img src="./assets/bg-rachel-team.jpg"
-              alt="Five ForestPro team members standing together at a forest nursery" />
+              alt="Five ForestPro team members standing together at a forest nursery"
+              data-i18n-alt="fieldTeam.imageAlt" />
           </div>
           <figcaption>
             <span></span>
@@ -168,26 +212,109 @@
 
     <section class="operating-profile" aria-labelledby="operating-profile-title" data-operating-profile>
       <div class="operating-profile-inner">
-        <h2 class="section-label" id="operating-profile-title">Operating Profile</h2>
+        <h2 class="section-label" id="operating-profile-title" data-i18n="profile.label">Operating Profile</h2>
         <dl class="operating-profile-facts">
           <div data-profile-row>
-            <dt>Our Role</dt>
-            <dd>Strategic forestry partner</dd>
+            <dt data-i18n="profile.roleLabel">Our Role</dt>
+            <dd data-i18n="profile.roleValue">Strategic forestry partner</dd>
           </div>
           <div data-profile-row>
-            <dt>Operational Scope</dt>
-            <dd>Planning through field operations</dd>
+            <dt data-i18n="profile.scopeLabel">Operational Scope</dt>
+            <dd data-i18n="profile.scopeValue">Planning through field operations</dd>
           </div>
           <div data-profile-row>
-            <dt>Working Principles</dt>
-            <dd>Compliance, efficiency, and sustainability</dd>
+            <dt data-i18n="profile.principlesLabel">Working Principles</dt>
+            <dd data-i18n="profile.principlesValue">Compliance, efficiency, and sustainability</dd>
           </div>
         </dl>
 
         <div class="section-chapter" aria-hidden="true" data-profile-footer>
           <span>03</span>
-          <span>Who we are</span>
+          <span data-i18n="who.label">Who we are</span>
         </div>
+      </div>
+    </section>
+
+    <section class="our-direction" aria-labelledby="direction-title" data-our-direction>
+      <div class="our-direction-inner">
+        <header class="direction-header" data-direction-reveal>
+          <p class="section-label" data-i18n="direction.label">Our Direction</p>
+          <div class="direction-vision">
+            <p class="direction-kicker" data-i18n="direction.visionLabel">Vision</p>
+            <h2 id="direction-title" data-i18n="direction.vision">
+              To become a pioneer in forest concession management services in Indonesia while actively advancing
+              sustainable and responsible forest management globally.
+            </h2>
+          </div>
+        </header>
+
+        <div class="direction-mission">
+          <p class="direction-mission-label" data-i18n="direction.missionLabel" data-direction-reveal>Our Mission</p>
+          <div class="direction-mission-list" data-direction-line>
+            <article data-direction-reveal>
+              <p data-i18n="direction.clientLabel">Customer</p>
+              <h3 data-i18n="direction.clientCopy">Provide strategic, holistic solutions for forest management.</h3>
+            </article>
+            <article data-direction-reveal>
+              <p data-i18n="direction.productivityLabel">Productivity</p>
+              <h3 data-i18n="direction.productivityCopy">Advance innovative and responsible forest management,
+                strengthen long-term economic value, and help shape a more inclusive industry.</h3>
+            </article>
+            <article data-direction-reveal>
+              <p data-i18n="direction.peopleLabel">People &amp; Community</p>
+              <h3 data-i18n="direction.peopleCopy">Improve well-being through active community participation in
+                forest management.</h3>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="corporate-values" aria-labelledby="values-title" data-corporate-values>
+      <div class="corporate-values-inner">
+        <header class="values-header" data-values-header>
+          <p class="section-label" data-i18n="values.label">Corporate Values</p>
+          <h2 id="values-title" data-i18n="values.title">What guides the way we work.</h2>
+          <p data-i18n="values.copy">Seven values shape how ForestPro works with clients, communities, and the
+            landscape.</p>
+        </header>
+
+        <ul class="values-list" aria-label="ForestPro corporate values" data-i18n-aria="values.listLabel">
+          <li data-value-item>
+            <h3 data-i18n="values.responsibilityTitle">Responsibility</h3>
+            <p data-i18n="values.responsibilityCopy">We consider the impact of every decision on nature and future
+              generations.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.teamworkTitle">Teamwork</h3>
+            <p data-i18n="values.teamworkCopy">We create greater value through collaboration across people, teams,
+              and partners.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.integrityTitle">Integrity</h3>
+            <p data-i18n="values.integrityCopy">Honesty and transparency are the foundation of every relationship we
+              build.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.actionTitle">Action</h3>
+            <p data-i18n="values.actionCopy">We turn sustainability commitments into work that can be seen on the
+              ground.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.excellenceTitle">Excellence</h3>
+            <p data-i18n="values.excellenceCopy">We keep improving how we work and the results we deliver.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.nurtureTitle">Nurture</h3>
+            <p data-i18n="values.nurtureCopy">We grow individual and community capacity through training and
+              empowerment.</p>
+          </li>
+          <li data-value-item>
+            <h3 data-i18n="values.sustainabilityTitle">Sustainability</h3>
+            <p data-i18n="values.sustainabilityCopy">We balance today's needs with the long-term integrity of nature.
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -195,9 +322,10 @@
       <div class="what-scroll">
         <div class="what-sticky">
           <div class="what-intro" data-what-intro>
-            <p class="what-label">What We Do</p>
-            <h2 id="what-we-do-title">Three capabilities. <span>One connected way forward.</span></h2>
-            <p class="what-intro-copy">
+            <p class="what-label" data-i18n="what.label">What We Do</p>
+            <h2 id="what-we-do-title" data-i18n-html="what.title">Three capabilities. <span>One connected way
+                forward.</span></h2>
+            <p class="what-intro-copy" data-i18n="what.copy">
               From the first strategic decision to field execution and the systems behind it, ForestPro brings every
               part of responsible forest management into one connected approach.
             </p>
@@ -216,54 +344,54 @@
           <div class="what-stages">
             <article class="what-stage" data-what-stage>
               <div class="what-stage-heading">
-                <p>01 / Direction</p>
-                <h3>Strategic Consulting</h3>
+                <p data-i18n="what.stageOneKicker">01 / Direction</p>
+                <h3 data-i18n="what.stageOneTitle">Strategic Consulting</h3>
               </div>
               <div class="what-stage-detail">
-                <p>
+                <p data-i18n="what.stageOneCopy">
                   We bring clarity to complex decisions, aligning regulation, business ambition, and the long-term
                   potential of every forest area.
                 </p>
-                <ul aria-label="Strategic Consulting outcomes">
-                  <li>Clarity before action</li>
-                  <li>Compliance by design</li>
-                  <li>Value with purpose</li>
+                <ul aria-label="Strategic Consulting outcomes" data-i18n-aria="what.stageOneOutcomesLabel">
+                  <li data-i18n="what.stageOneOutcomeOne">Clarity before action</li>
+                  <li data-i18n="what.stageOneOutcomeTwo">Compliance by design</li>
+                  <li data-i18n="what.stageOneOutcomeThree">Value with purpose</li>
                 </ul>
               </div>
             </article>
 
             <article class="what-stage" data-what-stage>
               <div class="what-stage-heading">
-                <p>02 / Delivery</p>
-                <h3>Integrated End-to-End Implementation</h3>
+                <p data-i18n="what.stageTwoKicker">02 / Delivery</p>
+                <h3 data-i18n="what.stageTwoTitle">Integrated End-to-End Implementation</h3>
               </div>
               <div class="what-stage-detail">
-                <p>
+                <p data-i18n="what.stageTwoCopy">
                   We turn plans into coordinated action, bringing the right people, resources, and field execution
                   together to deliver measurable progress.
                 </p>
-                <ul aria-label="Integrated implementation outcomes">
-                  <li>Ready to operate</li>
-                  <li>Connected execution</li>
-                  <li>Progress on the ground</li>
+                <ul aria-label="Integrated implementation outcomes" data-i18n-aria="what.stageTwoOutcomesLabel">
+                  <li data-i18n="what.stageTwoOutcomeOne">Ready to operate</li>
+                  <li data-i18n="what.stageTwoOutcomeTwo">Connected execution</li>
+                  <li data-i18n="what.stageTwoOutcomeThree">Progress on the ground</li>
                 </ul>
               </div>
             </article>
 
             <article class="what-stage" data-what-stage>
               <div class="what-stage-heading">
-                <p>03 / Continuity</p>
-                <h3>System Development</h3>
+                <p data-i18n="what.stageThreeKicker">03 / Continuity</p>
+                <h3 data-i18n="what.stageThreeTitle">System Development</h3>
               </div>
               <div class="what-stage-detail">
-                <p>
+                <p data-i18n="what.stageThreeCopy">
                   We build the systems that keep forest operations consistent, traceable, and ready to evolve as
                   standards and opportunities change.
                 </p>
-                <ul aria-label="System Development outcomes">
-                  <li>Consistency at scale</li>
-                  <li>Traceable decisions</li>
-                  <li>Ready for what comes next</li>
+                <ul aria-label="System Development outcomes" data-i18n-aria="what.stageThreeOutcomesLabel">
+                  <li data-i18n="what.stageThreeOutcomeOne">Consistency at scale</li>
+                  <li data-i18n="what.stageThreeOutcomeTwo">Traceable decisions</li>
+                  <li data-i18n="what.stageThreeOutcomeThree">Ready for what comes next</li>
                 </ul>
               </div>
             </article>
@@ -271,7 +399,7 @@
 
           <div class="what-chapter" aria-hidden="true">
             <span>04</span>
-            <span>What we do</span>
+            <span data-i18n="what.label">What we do</span>
           </div>
         </div>
       </div>
@@ -280,12 +408,12 @@
     <section class="focus-areas" id="focus-areas" aria-labelledby="focus-areas-title" data-focus-areas>
       <div class="focus-intro" data-focus-intro>
         <div class="focus-intro-heading">
-          <p class="section-label">Our Focus Areas</p>
-          <h2 id="focus-areas-title">More value from every forest area.</h2>
+          <p class="section-label" data-i18n="focus.label">Our Focus Areas</p>
+          <h2 id="focus-areas-title" data-i18n="focus.title">More value from every forest area.</h2>
         </div>
 
         <div class="focus-intro-copy">
-          <p>
+          <p data-i18n="focus.copy">
             ForestPro combines productive land use, forest-based commodities, and environmental services in one
             planned, legal, and sustainable approach.
           </p>
@@ -295,8 +423,8 @@
       <div class="focus-scroll" data-focus-scroll>
         <div class="focus-sticky">
           <div class="focus-stage-heading" aria-hidden="true">
-            <span>Responsible forest utilization</span>
-            <span>Three connected focus areas</span>
+            <span data-i18n="focus.stageHeading">Responsible forest utilization</span>
+            <span data-i18n="focus.stageSubheading">Three connected focus areas</span>
           </div>
 
           <div class="focus-panels" data-focus-panels>
@@ -304,12 +432,13 @@
               <span class="focus-panel-index">01</span>
               <figure class="focus-panel-media focus-panel-media-portrait">
                 <img src="assets/Focus/utilization%20(1).jpg"
-                  alt="A forestry professional holding a seedling during fieldwork" loading="lazy" decoding="async">
+                  alt="A forestry professional holding a seedling during fieldwork" data-i18n-alt="focus.areaImageAlt"
+                  loading="lazy" decoding="async">
               </figure>
               <div class="focus-panel-content">
-                <p class="focus-panel-short" aria-hidden="true">Forest Area Utilization</p>
-                <h3>Forest Area Utilization</h3>
-                <p>
+                <p class="focus-panel-short" aria-hidden="true" data-i18n="focus.areaTitle">Forest Area Utilization</p>
+                <h3 data-i18n="focus.areaTitle">Forest Area Utilization</h3>
+                <p data-i18n="focus.areaCopy">
                   ForestPro supports land uses such as agroforestry, silvofishery, and silvopasture while protecting the
                   ecological function of the area.
                 </p>
@@ -320,12 +449,14 @@
               <span class="focus-panel-index">02</span>
               <figure class="focus-panel-media focus-panel-media-portrait">
                 <img src="assets/Focus/commodities.jpg"
-                  alt="A forestry professional collecting latex from a rubber tree" loading="lazy" decoding="async">
+                  alt="A forestry professional collecting latex from a rubber tree"
+                  data-i18n-alt="focus.commoditiesImageAlt" loading="lazy" decoding="async">
               </figure>
               <div class="focus-panel-content">
-                <p class="focus-panel-short" aria-hidden="true">Forest-Based Commodities</p>
-                <h3>Forest-Based Commodities</h3>
-                <p>
+                <p class="focus-panel-short" aria-hidden="true" data-i18n="focus.commoditiesTitle">Forest-Based
+                  Commodities</p>
+                <h3 data-i18n="focus.commoditiesTitle">Forest-Based Commodities</h3>
+                <p data-i18n="focus.commoditiesCopy">
                   ForestPro connects responsible wood and non-wood commodity development with compliant planning,
                   harvesting, and certification.
                 </p>
@@ -337,12 +468,13 @@
               <figure class="focus-panel-media focus-panel-media-portrait">
                 <img src="assets/Focus/enviro.jpg"
                   alt="A forestry field team reviewing information together in a forest area" loading="lazy"
-                  decoding="async">
+                  decoding="async" data-i18n-alt="focus.servicesImageAlt">
               </figure>
               <div class="focus-panel-content">
-                <p class="focus-panel-short" aria-hidden="true">Environmental Services</p>
-                <h3>Environmental Services</h3>
-                <p>
+                <p class="focus-panel-short" aria-hidden="true" data-i18n="focus.servicesTitle">Environmental Services
+                </p>
+                <h3 data-i18n="focus.servicesTitle">Environmental Services</h3>
+                <p data-i18n="focus.servicesCopy">
                   ForestPro supports environmental services related to ecotourism, biodiversity, and carbon projects
                   for national and international markets.
                 </p>
@@ -350,13 +482,13 @@
             </article>
           </div>
 
-          <p class="focus-closing" data-focus-closing>
+          <p class="focus-closing" data-focus-closing data-i18n="focus.closing">
             These opportunities can develop together within the same forest area.
           </p>
 
           <div class="focus-chapter" aria-hidden="true" data-focus-footer>
             <span>05</span>
-            <span>Our focus areas</span>
+            <span data-i18n="focus.label">Our focus areas</span>
           </div>
         </div>
       </div>
@@ -365,9 +497,9 @@
     <section class="sustainable-outcomes" id="sustainable-outcomes" aria-labelledby="outcomes-title"
       data-sustainable-outcomes>
       <header class="outcomes-intro" data-outcomes-intro>
-        <p class="section-label">Sustainable Outcomes</p>
-        <h2 id="outcomes-title">A forest cannot be managed in parts.</h2>
-        <p class="outcomes-intro-copy">
+        <p class="section-label" data-i18n="outcomes.label">Sustainable Outcomes</p>
+        <h2 id="outcomes-title" data-i18n="outcomes.title">A forest cannot be managed in parts.</h2>
+        <p class="outcomes-intro-copy" data-i18n="outcomes.copy">
           Lasting value depends on the relationship between ecological integrity, community interests, and
           accountable governance.
         </p>
@@ -378,16 +510,17 @@
         <article class="outcome-chapter outcome-environment" data-outcome-chapter>
           <div class="outcome-chapter-inner">
             <div class="outcome-text">
-              <p class="outcome-label">Environmental Stewardship</p>
-              <h3>Forests must remain functional to remain valuable.</h3>
-              <p class="outcome-copy">
+              <p class="outcome-label" data-i18n="outcomes.environmentLabel">Environmental Stewardship</p>
+              <h3 data-i18n="outcomes.environmentTitle">Forests must remain functional to remain valuable.</h3>
+              <p class="outcome-copy" data-i18n="outcomes.environmentCopy">
                 ForestPro supports management decisions that protect biodiversity, ecological functions, and the
                 long-term productivity of forest landscapes.
               </p>
             </div>
             <figure class="outcome-media">
               <img src="assets/sustainability/image%2036.jpg"
-                alt="A ForestPro boat carrying people across calm coastal waters" loading="lazy" decoding="async" />
+                alt="A ForestPro boat carrying people across calm coastal waters"
+                data-i18n-alt="outcomes.environmentImageAlt" loading="lazy" decoding="async" />
             </figure>
           </div>
         </article>
@@ -395,9 +528,9 @@
         <article class="outcome-chapter outcome-community" data-outcome-chapter>
           <div class="outcome-chapter-inner">
             <div class="outcome-text">
-              <p class="outcome-label">Community &amp; Shared Value</p>
-              <h3>Strong forest futures include the people closest to them.</h3>
-              <p class="outcome-copy">
+              <p class="outcome-label" data-i18n="outcomes.communityLabel">Community &amp; Shared Value</p>
+              <h3 data-i18n="outcomes.communityTitle">Strong forest futures include the people closest to them.</h3>
+              <p class="outcome-copy" data-i18n="outcomes.communityCopy">
                 ForestPro brings community participation, local knowledge, and livelihood considerations into
                 responsible forest planning, helping align long-term business continuity with the interests of
                 surrounding communities.
@@ -406,7 +539,7 @@
             <figure class="outcome-media">
               <img src="assets/sustainability/community.jpg"
                 alt="ForestPro representatives and local community members standing together outdoors" loading="lazy"
-                decoding="async" />
+                decoding="async" data-i18n-alt="outcomes.communityImageAlt" />
             </figure>
           </div>
         </article>
@@ -414,62 +547,68 @@
         <article class="outcome-chapter outcome-governance" data-outcome-chapter>
           <div class="outcome-chapter-inner">
             <div class="outcome-text">
-              <p class="outcome-label">Responsible Governance</p>
-              <h3>Sustainability endures when every decision is accountable.</h3>
-              <p class="outcome-copy">
+              <p class="outcome-label" data-i18n="outcomes.governanceLabel">Responsible Governance</p>
+              <h3 data-i18n="outcomes.governanceTitle">Sustainability endures when every decision is accountable.</h3>
+              <p class="outcome-copy" data-i18n="outcomes.governanceCopy">
                 Clear planning, regulatory alignment, transparent documentation, and measurable standards help turn
                 sustainability commitments into responsible field practice.
               </p>
             </div>
             <figure class="outcome-media">
               <img src="assets/sustainability/regulations.jpg"
-                alt="A field professional documenting forest conditions on a clipboard" loading="lazy"
-                decoding="async" />
+                alt="A field professional documenting forest conditions on a clipboard"
+                data-i18n-alt="outcomes.governanceImageAlt" loading="lazy" decoding="async" />
             </figure>
           </div>
         </article>
       </div>
 
       <footer class="outcomes-closing" data-outcomes-closing>
-        <p class="outcomes-closing-statement">Sustainability is how forestry <em>moves forward.</em></p>
-        <div class="outcomes-closing-principles" aria-label="Sustainability dimensions">
-          <span data-outcomes-closing-principle>Environmental stewardship</span>
-          <span data-outcomes-closing-principle>Community &amp; shared value</span>
-          <span data-outcomes-closing-principle>Responsible governance</span>
+        <p class="outcomes-closing-statement" data-i18n-html="outcomes.closing">Sustainability is how forestry <em>moves
+            forward.</em></p>
+        <div class="outcomes-closing-principles" aria-label="Sustainability dimensions"
+          data-i18n-aria="outcomes.dimensionsLabel">
+          <span data-outcomes-closing-principle data-i18n="outcomes.environmentLabel">Environmental stewardship</span>
+          <span data-outcomes-closing-principle data-i18n="outcomes.communityLabel">Community &amp; shared value</span>
+          <span data-outcomes-closing-principle data-i18n="outcomes.governanceLabel">Responsible governance</span>
         </div>
       </footer>
     </section>
 
     <section class="contact-cta" id="contact" aria-labelledby="contact-cta-title" data-contact-cta>
-      <h2 id="contact-cta-title" data-contact-title>
+      <h2 id="contact-cta-title" data-contact-title data-i18n-html="contact.title">
         Bring your forest potential into <em>responsible practice.</em>
       </h2>
 
       <div class="contact-cta-details" data-contact-details>
-        <p>
+        <p data-i18n="contact.copy">
           Talk with ForestPro about regulatory alignment, operational planning, and sustainable implementation for
           your forest area or land.
         </p>
 
         <div class="contact-cta-action-wrap" data-contact-action>
-          <a class="contact-cta-action" href="mailto:contact@forestpro.id?subject=Forestry%20Project%20Discussion">
+          <a class="contact-cta-action" href="mailto:contact@forestpro.id?subject=Forestry%20Project%20Discussion"
+            data-i18n="contact.action" data-i18n-href="contact.actionHref">
             Discuss Your Forestry Project
           </a>
 
-          <nav class="contact-cta-channels" aria-label="ForestPro contact channels">
+          <nav class="contact-cta-channels" aria-label="ForestPro contact channels"
+            data-i18n-aria="contact.channelsLabel">
             <a class="contact-cta-channel" href="mailto:contact@forestpro.id">
               <iconify-icon icon="lucide:mail" aria-hidden="true"></iconify-icon>
               <span>Email</span>
               <strong>contact@forestpro.id</strong>
             </a>
             <a class="contact-cta-channel" href="https://www.instagram.com/forestpro.id/" target="_blank"
-              rel="noopener noreferrer" aria-label="ForestPro on Instagram, opens in a new tab">
+              rel="noopener noreferrer" aria-label="ForestPro on Instagram, opens in a new tab"
+              data-i18n-aria="contact.instagramLabel">
               <iconify-icon icon="simple-icons:instagram" aria-hidden="true"></iconify-icon>
               <span>Instagram</span>
               <strong>@forestpro.id</strong>
             </a>
             <a class="contact-cta-channel" href="https://www.linkedin.com/company/forestpro/" target="_blank"
-              rel="noopener noreferrer" aria-label="ForestPro Indonesia on LinkedIn, opens in a new tab">
+              rel="noopener noreferrer" aria-label="ForestPro Indonesia on LinkedIn, opens in a new tab"
+              data-i18n-aria="contact.linkedinLabel">
               <iconify-icon icon="simple-icons:linkedin" aria-hidden="true"></iconify-icon>
               <span>LinkedIn</span>
               <strong>ForestPro Indonesia</strong>
@@ -481,11 +620,55 @@
   </main>
 
   <footer class="site-footer" data-site-footer>
-    <a class="site-footer-brand" href="#top" aria-label="ForestPro, back to top">
-      <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes.png" alt="ForestPro" />
-    </a>
-    <p>Towards Greener Future</p>
-    <a class="site-footer-top" href="#top">Back to top</a>
+    <div class="site-footer-main">
+      <div class="site-footer-brand-block" data-footer-brand>
+        <a class="site-footer-brand" href="#top" aria-label="ForestPro, back to top"
+          data-i18n-aria="common.backToTopLabel">
+          <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes%20White.png" alt="ForestPro" />
+        </a>
+        <p class="site-footer-tagline">Towards <em>Greener</em> Future</p>
+      </div>
+
+      <nav class="site-footer-directory" aria-label="Footer navigation" data-i18n-aria="footer.navigationLabel"
+        data-footer-group>
+        <p class="site-footer-label" data-i18n="footer.index">Navigation</p>
+        <div class="site-footer-links">
+          <a href="#top" data-i18n="footer.home">Home</a>
+          <a href="#who-we-are" data-i18n="nav.who">Who We Are</a>
+          <a href="#what-we-do" data-i18n="nav.what">What We Do</a>
+          <a href="#focus-areas" data-i18n="nav.focus">Our Focus</a>
+          <a href="#sustainable-outcomes" data-i18n="nav.sustainability">Sustainability</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="site-footer-connect" data-footer-group>
+        <p class="site-footer-label" data-i18n="footer.connect">Connect with us</p>
+        <div class="site-footer-links">
+          <a class="site-footer-action" href="mailto:contact@forestpro.id">
+            <iconify-icon icon="lucide:mail" aria-hidden="true"></iconify-icon>
+            <span>Email</span>
+          </a>
+          <a class="site-footer-action" href="https://www.instagram.com/forestpro.id/" target="_blank"
+            rel="noopener noreferrer" aria-label="ForestPro on Instagram, opens in a new tab"
+            data-i18n-aria="contact.instagramLabel">
+            <iconify-icon icon="simple-icons:instagram" aria-hidden="true"></iconify-icon>
+            <span>Instagram</span>
+          </a>
+          <a class="site-footer-action" href="https://www.linkedin.com/company/forestpro/" target="_blank"
+            rel="noopener noreferrer" aria-label="ForestPro Indonesia on LinkedIn, opens in a new tab"
+            data-i18n-aria="contact.linkedinLabel">
+            <iconify-icon icon="simple-icons:linkedin" aria-hidden="true"></iconify-icon>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer-base" data-footer-meta>
+      <p><span>ForestPro</span><span data-i18n="footer.country">Indonesia</span></p>
+      <a class="site-footer-top" href="#top" data-i18n="footer.backToTop">Back to top</a>
+    </div>
   </footer>
 </body>
 
