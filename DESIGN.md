@@ -17,6 +17,9 @@ The website presents ForestPro as an operational forestry management partner. It
 
 - White remains the ground plane because ForestPro should feel precise, credible, and operational rather than cinematic-dark.
 - Green is reserved for the key connection between potential and management, giving the accent a job instead of spreading it everywhere.
+- The navigation behaves as a field index: a fixed white strip keeps the long-form story reachable, while a one-pixel green progress line shows movement from forest potential to responsible practice.
+- Desktop navigation exposes the five real homepage destinations directly. Tablet and phone layouts replace the row with a clearly labelled Menu control and a full-width ruled index so links remain readable and comfortably tappable.
+- The current section is communicated by text weight and contrast. Green stays on the progress line and the active mobile destination, preventing the accent from flooding every navigation label.
 - Aileron carries the large editorial statements; Tahoma keeps operational detail familiar and readable.
 - The comparison is typographic rather than card-based because the content describes two sides of one system, not ten separate features.
 - The vertical green axis separates the two responsibilities and becomes the visual bridge that ForestPro resolves.
@@ -40,3 +43,23 @@ The website presents ForestPro as an operational forestry management partner. It
 - Focus Areas returns to white after the solid-green What We Do chapter. Green is limited to the active state and connecting details so the transition restores breathing room without losing the ForestPro identity.
 - The first two Focus Area panels use the supplied field photographs as permanent full-bleed backgrounds with a restrained forest-toned scrim and white foreground copy. Environmental Services remains a white editorial panel to close the sequence.
 - All three Focus Area panels retain the same title, description, compact-label motion, and expanding-grid behavior. Copy length stays deliberately balanced so no card title is displaced by an oversized paragraph.
+- Sustainable Outcomes follows Focus Areas as an ESG narrative, not a card collection. Its local dial is ENERGY 2 / RHYTHM 3 / MOTION 2 so the chapter feels consequential without competing with the more cinematic service sequences above it.
+- The opening stays white and oversized because the core ESG idea needs one clear focal statement before its three dimensions are separated.
+- Environmental Stewardship stays on the white ground plane so the photograph and narrative carry the ecological context. Brand green is limited to the chapter label and structural line.
+- Community & Shared Value returns to white and reverses the composition so the human dimension receives a distinct rhythm without introducing a color outside ForestPro's white-and-green system.
+- Responsible Governance returns to white and keeps only the sourced governance narrative, without introducing unsourced principle labels.
+- The hard boundary between copy and full-height field imagery gives each ESG dimension a concrete operational context without adding decorative dividers.
+- Motion reveals each chapter in reading order and then stops. It guides the handoff between ESG dimensions rather than decorating every line.
+- Sustainable Outcomes uses three supplied field photographs: landscape access by ForestPro boat, community participation, and field documentation. This keeps the ESG story tied to ForestPro's real operating context rather than generic stock photography.
+- The photographs alternate right, left, and right as full-height side panels on wider screens. The community crop is strongly biased to the right to retain the intended people and ForestPro representation on that side of the group.
+- On phones, each photograph becomes a full-width field panel after its narrative block, preserving native scroll order while maintaining the same chapter rhythm.
+- Sustainable Outcomes headings use a smaller scale than the first draft so the photography and supporting copy can share the hierarchy instead of being overwhelmed by display type.
+- On phones, each outcome remains in native document flow with deliberate left-right shifts, shorter spacing, and reduced type scale instead of a compressed desktop grid.
+- The Sustainable Outcomes closing states that sustainability is how forestry moves forward, positioning sustainability as the operating principle behind the industry rather than presenting ForestPro as a conservation or restoration organization. A full-viewport white field keeps the chapter inside the site's clean ground plane while giving the statement room to land.
+- The closing resolves the ESG chapter with three green ruled editorial lines for Environmental Stewardship, Community & Shared Value, and Responsible Governance. Green marks the structural connection and the phrase "moves forward" instead of becoming another full-screen color chapter.
+- The three closing lines reveal in sequence after the headline and remain static once they land. On phones they stack into a compact vertical index, preserving the full statement above them.
+- The final CTA follows the sustainability statement as a second white editorial field, using scale, spacing, and commercial intent rather than another background-color switch to mark the transition.
+- On wide screens, the CTA places its headline and action copy on opposite sides of the grid. On phones, both reflow into one native-scroll column with a full-width action target.
+- CTA motion reveals the headline, supporting copy, and action in reading order, then stops. Reduced-motion users receive the same content without clipping or transforms.
+- The CTA now uses ForestPro's supplied email address as its primary action. A restrained ruled contact index keeps the official email, Instagram, and LinkedIn destinations visible as text, with compact Iconify marks supporting rather than replacing each label.
+- The footer stays minimal and functional: the supplied ForestPro logo, the established tagline, and a real back-to-top link.

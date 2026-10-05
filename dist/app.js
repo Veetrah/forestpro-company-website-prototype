@@ -18,14 +18,121 @@ const focusPanelField = document.querySelector('[data-focus-panels]');
 const focusPanels = [...document.querySelectorAll('[data-focus-panel]')];
 const focusClosing = document.querySelector('[data-focus-closing]');
 const focusFooter = document.querySelector('[data-focus-footer]');
+const sustainableOutcomes = document.querySelector('[data-sustainable-outcomes]');
+const outcomesIntro = document.querySelector('[data-outcomes-intro]');
+const outcomeChapters = [...document.querySelectorAll('[data-outcome-chapter]')];
+const outcomesClosing = document.querySelector('[data-outcomes-closing]');
+const outcomesClosingPrinciples = [...document.querySelectorAll('[data-outcomes-closing-principle]')];
+const contactCta = document.querySelector('[data-contact-cta]');
+const contactTitle = document.querySelector('[data-contact-title]');
+const contactDetails = document.querySelector('[data-contact-details]');
+const contactAction = document.querySelector('[data-contact-action]');
+const siteFooter = document.querySelector('[data-site-footer]');
+const siteNav = document.querySelector('[data-site-nav]');
+const siteNavToggle = document.querySelector('[data-nav-toggle]');
+const siteNavToggleLabel = document.querySelector('[data-nav-toggle-label]');
+const siteNavPanel = document.querySelector('[data-nav-panel]');
+const siteNavLinks = [...document.querySelectorAll('[data-nav-link]')];
 
 const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
 const range = (value, start, end) => clamp((value - start) / (end - start));
 
+if (siteNav && siteNavToggle && siteNavToggleLabel && siteNavPanel && siteNavLinks.length) {
+  const desktopNavigation = window.matchMedia('(min-width: 64.0625rem)');
+  const navSections = [...new Map(siteNavLinks.map((link) => {
+    const target = document.querySelector(link.hash);
+    return target ? [link.hash.slice(1), target] : null;
+  }).filter(Boolean)).values()];
+  let navFrameRequested = false;
+
+  function setMenuOpen(isOpen, returnFocus = false) {
+    siteNav.classList.toggle('is-menu-open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+    siteNavToggle.setAttribute('aria-expanded', String(isOpen));
+    siteNavToggleLabel.textContent = isOpen ? 'Close' : 'Menu';
+    siteNavPanel.setAttribute('aria-hidden', String(!isOpen));
+    siteNavPanel.inert = !isOpen;
+
+    if (!isOpen && returnFocus) {
+      siteNavToggle.focus();
+    }
+  }
+
+  function renderNavigation() {
+    navFrameRequested = false;
+    const scrollTop = Math.max(window.scrollY, 0);
+    const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = clamp(scrollTop / scrollRange);
+    const referenceLine = siteNav.getBoundingClientRect().height + (window.innerHeight * 0.26);
+    let activeId = '';
+
+    siteNav.classList.toggle('is-scrolled', scrollTop > 24);
+    siteNav.style.setProperty('--nav-progress', String(progress));
+
+    navSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= referenceLine) activeId = section.id;
+    });
+
+    siteNavLinks.forEach((link) => {
+      if (link.hash === `#${activeId}`) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function requestNavRender() {
+    if (navFrameRequested) return;
+    navFrameRequested = true;
+    requestAnimationFrame(renderNavigation);
+  }
+
+  siteNavToggle.addEventListener('click', () => {
+    setMenuOpen(siteNavToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  siteNavLinks.forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && siteNavToggle.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false, true);
+    }
+
+    if (event.key === 'Tab' && siteNavToggle.getAttribute('aria-expanded') === 'true') {
+      const menuFocusOrder = [siteNavToggle, ...siteNavPanel.querySelectorAll('a')];
+      const firstItem = menuFocusOrder[0];
+      const lastItem = menuFocusOrder[menuFocusOrder.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    }
+  });
+
+  desktopNavigation.addEventListener('change', (event) => {
+    if (event.matches) setMenuOpen(false);
+    requestNavRender();
+  });
+
+  renderNavigation();
+  window.addEventListener('scroll', requestNavRender, { passive: true });
+  window.addEventListener('resize', requestNavRender);
+}
+
 if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && profileRows.length && profileFooter
   && whatWeDo && whatIntro && whatStages.length === 3 && whatNodes.length === 3
   && focusAreas && focusIntro && focusScroll && focusPanelField && focusPanels.length === 3 && focusClosing
-  && focusFooter && !prefersReducedMotion) {
+  && focusFooter && sustainableOutcomes && outcomesIntro && outcomeChapters.length === 3 && outcomesClosing
+  && outcomesClosingPrinciples.length === 3
+  && contactCta && contactTitle && contactDetails && contactAction && siteFooter
+  && !prefersReducedMotion) {
   document.body.classList.add('has-scroll-motion');
 
   let frameRequested = false;
@@ -272,6 +379,75 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
       focusAreas.style.setProperty('--focus-footer-opacity', String(finalFocusIn));
       focusAreas.style.setProperty('--focus-footer-y', `${(1 - finalFocusIn) * 1.25}rem`);
     }
+
+    const outcomesIntroBounds = outcomesIntro.getBoundingClientRect();
+    const outcomesIntroIn = clamp((viewportHeight * 0.9 - outcomesIntroBounds.top) / (viewportHeight * 0.58));
+    const outcomesTitleIn = range(outcomesIntroIn, 0.08, 0.68);
+    const outcomesCopyIn = range(outcomesIntroIn, 0.42, 0.92);
+
+    sustainableOutcomes.style.setProperty('--outcomes-label-opacity', String(range(outcomesIntroIn, 0, 0.3)));
+    sustainableOutcomes.style.setProperty('--outcomes-label-y', `${(1 - outcomesIntroIn) * 1.5}rem`);
+    sustainableOutcomes.style.setProperty('--outcomes-title-opacity', String(outcomesTitleIn));
+    sustainableOutcomes.style.setProperty('--outcomes-title-y', `${(1 - outcomesTitleIn) * 4}rem`);
+    sustainableOutcomes.style.setProperty('--outcomes-title-clip', `${(1 - outcomesTitleIn) * 100}%`);
+    sustainableOutcomes.style.setProperty('--outcomes-copy-opacity', String(outcomesCopyIn));
+    sustainableOutcomes.style.setProperty('--outcomes-copy-y', `${(1 - outcomesCopyIn) * 2}rem`);
+    sustainableOutcomes.style.setProperty('--outcomes-line-scale', String(outcomesCopyIn));
+
+    outcomeChapters.forEach((chapter) => {
+      const chapterBounds = chapter.getBoundingClientRect();
+      const chapterIn = clamp((viewportHeight * 0.92 - chapterBounds.top) / (viewportHeight * 0.62));
+      const chapterLabelIn = range(chapterIn, 0, 0.28);
+      const chapterTitleIn = range(chapterIn, 0.1, 0.7);
+      const chapterCopyIn = range(chapterIn, 0.42, 0.94);
+      const chapterMediaIn = range(chapterIn, 0.22, 0.82);
+
+      chapter.style.setProperty('--outcome-label-opacity', String(chapterLabelIn));
+      chapter.style.setProperty('--outcome-label-y', `${(1 - chapterLabelIn) * 1.5}rem`);
+      chapter.style.setProperty('--outcome-title-opacity', String(chapterTitleIn));
+      chapter.style.setProperty('--outcome-title-y', `${(1 - chapterTitleIn) * 3.5}rem`);
+      chapter.style.setProperty('--outcome-title-clip', `${(1 - chapterTitleIn) * 100}%`);
+      chapter.style.setProperty('--outcome-copy-opacity', String(chapterCopyIn));
+      chapter.style.setProperty('--outcome-copy-y', `${(1 - chapterCopyIn) * 2}rem`);
+      chapter.style.setProperty('--outcome-rule-scale', String(range(chapterIn, 0.14, 0.88)));
+      chapter.style.setProperty('--outcome-media-opacity', String(chapterMediaIn));
+      chapter.style.setProperty('--outcome-media-y', `${(1 - chapterMediaIn) * 2.25}rem`);
+      chapter.style.setProperty('--outcome-media-clip', `${(1 - chapterMediaIn) * 100}%`);
+      chapter.style.setProperty('--outcome-media-scale', String(1.045 - (chapterMediaIn * 0.045)));
+    });
+
+    const outcomesClosingBounds = outcomesClosing.getBoundingClientRect();
+    const outcomesClosingIn = clamp((viewportHeight * 0.92 - outcomesClosingBounds.top) / (viewportHeight * 0.68));
+
+    sustainableOutcomes.style.setProperty('--outcomes-closing-opacity', String(outcomesClosingIn));
+    sustainableOutcomes.style.setProperty('--outcomes-closing-y', `${(1 - outcomesClosingIn) * 4}rem`);
+    sustainableOutcomes.style.setProperty('--outcomes-closing-clip', `${(1 - outcomesClosingIn) * 100}%`);
+
+    outcomesClosingPrinciples.forEach((principle, index) => {
+      const principleIn = range(outcomesClosingIn, 0.42 + (index * 0.12), 0.72 + (index * 0.12));
+      principle.style.setProperty('--outcomes-principle-opacity', String(principleIn));
+      principle.style.setProperty('--outcomes-principle-y', `${(1 - principleIn) * 1.25}rem`);
+      principle.style.setProperty('--outcomes-principle-line', String(principleIn));
+    });
+
+    const contactBounds = contactCta.getBoundingClientRect();
+    const contactIn = clamp((viewportHeight * 0.92 - contactBounds.top) / (viewportHeight * 0.74));
+    const contactTitleIn = range(contactIn, 0.02, 0.62);
+    const contactDetailsIn = range(contactIn, 0.28, 0.78);
+    const contactActionIn = range(contactIn, 0.56, 0.96);
+
+    contactCta.style.setProperty('--contact-title-opacity', String(contactTitleIn));
+    contactCta.style.setProperty('--contact-title-y', `${(1 - contactTitleIn) * 4}rem`);
+    contactCta.style.setProperty('--contact-title-clip', `${(1 - contactTitleIn) * 100}%`);
+    contactCta.style.setProperty('--contact-details-opacity', String(contactDetailsIn));
+    contactCta.style.setProperty('--contact-details-y', `${(1 - contactDetailsIn) * 2.5}rem`);
+    contactCta.style.setProperty('--contact-action-opacity', String(contactActionIn));
+    contactCta.style.setProperty('--contact-action-x', `${(1 - contactActionIn) * 2}rem`);
+
+    const footerBounds = siteFooter.getBoundingClientRect();
+    const footerIn = clamp((viewportHeight - footerBounds.top) / (viewportHeight * 0.1));
+    siteFooter.style.setProperty('--site-footer-opacity', String(footerIn));
+    siteFooter.style.setProperty('--site-footer-y', `${(1 - footerIn) * 1.25}rem`);
   }
 
   function requestRender() {

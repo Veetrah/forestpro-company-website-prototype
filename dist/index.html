@@ -5,22 +5,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <meta name="application-name" content="ForestPro" />
   <meta name="description"
-    content="ForestPro connects forest potential with compliant, capable, and responsible management." />
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFFFFF'/%3E%3Cpath d='M16 5c-1.8 4-5.8 6.1-5.8 11.2 0 3.7 2.4 6.2 5.8 6.2s5.8-2.5 5.8-6.2C21.8 11.1 17.8 9 16 5Z' fill='%233B8D41'/%3E%3C/svg%3E" />
+    content="ForestPro is a strategic forestry partner connecting forest potential with responsible management, regulatory compliance, and long-term sustainability." />
+  <meta property="og:title" content="ForestPro | Towards Greener Future" />
+  <meta property="og:description"
+    content="Responsible forest management shaped by relevant innovation, regulatory compliance, and long-term sustainability." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ForestPro" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ForestPro | Towards Greener Future" />
+  <meta name="twitter:description"
+    content="Responsible forest management shaped by relevant innovation, regulatory compliance, and long-term sustainability." />
+  <link rel="icon" type="image/png" href="./assets/Logo/Fpr%20-%20Logo%20Hires%20Icon.png" />
+  <link rel="apple-touch-icon" href="./assets/Logo/Fpr%20-%20Logo%20Hires%20Icon.png" />
   <link rel="stylesheet" href="./styles-light.css" />
   <script src="./app.js" defer></script>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js" defer></script>
   <title>ForestPro | Towards Greener Future</title>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header">
-    <a class="logo-placeholder" href="#top" aria-label="ForestPro, back to top">
-      <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes.png" alt="ForestPro" />
-    </a>
+  <header class="site-header" data-site-nav>
+    <div class="site-nav-inner">
+      <a class="logo-placeholder" href="#top" aria-label="ForestPro, back to top">
+        <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes.png" alt="ForestPro" />
+      </a>
+
+      <nav class="site-nav-links" aria-label="Primary navigation">
+        <a href="#who-we-are" data-nav-link>Who We Are</a>
+        <a href="#what-we-do" data-nav-link>What We Do</a>
+        <a href="#focus-areas" data-nav-link>Our Focus</a>
+        <a href="#sustainable-outcomes" data-nav-link>Sustainability</a>
+        <a href="#contact" data-nav-link>Contact</a>
+      </nav>
+
+      <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-panel"
+        data-nav-toggle>
+        <span data-nav-toggle-label>Menu</span>
+      </button>
+    </div>
+
+    <div class="site-nav-panel" id="site-nav-panel" aria-hidden="true" data-nav-panel inert>
+      <nav class="site-nav-panel-links" aria-label="Mobile navigation">
+        <a href="#who-we-are" data-nav-link>Who We Are</a>
+        <a href="#what-we-do" data-nav-link>What We Do</a>
+        <a href="#focus-areas" data-nav-link>Our Focus</a>
+        <a href="#sustainable-outcomes" data-nav-link>Sustainability</a>
+        <a href="#contact" data-nav-link>Contact</a>
+      </nav>
+    </div>
+
+    <span class="site-nav-progress" aria-hidden="true"><span></span></span>
   </header>
 
   <main id="main">
@@ -264,8 +303,8 @@
             <article class="focus-panel focus-panel-has-media" data-focus-panel>
               <span class="focus-panel-index">01</span>
               <figure class="focus-panel-media focus-panel-media-portrait">
-                <img src="assets/Focus/utilization.webp" alt="A field team member measuring a tree in the forest"
-                  loading="lazy" decoding="async">
+                <img src="assets/Focus/utilization%20(1).jpg"
+                  alt="A forestry professional holding a seedling during fieldwork" loading="lazy" decoding="async">
               </figure>
               <div class="focus-panel-content">
                 <p class="focus-panel-short" aria-hidden="true">Forest Area Utilization</p>
@@ -279,9 +318,9 @@
 
             <article class="focus-panel focus-panel-has-media" data-focus-panel>
               <span class="focus-panel-index">02</span>
-              <figure class="focus-panel-media focus-panel-media-landscape">
-                <img src="assets/Focus/IMG_9670.webp" alt="A field team documenting forest conditions during fieldwork"
-                  loading="lazy" decoding="async">
+              <figure class="focus-panel-media focus-panel-media-portrait">
+                <img src="assets/Focus/commodities.jpg"
+                  alt="A forestry professional collecting latex from a rubber tree" loading="lazy" decoding="async">
               </figure>
               <div class="focus-panel-content">
                 <p class="focus-panel-short" aria-hidden="true">Forest-Based Commodities</p>
@@ -293,8 +332,13 @@
               </div>
             </article>
 
-            <article class="focus-panel" data-focus-panel>
+            <article class="focus-panel focus-panel-has-media" data-focus-panel>
               <span class="focus-panel-index">03</span>
+              <figure class="focus-panel-media focus-panel-media-portrait">
+                <img src="assets/Focus/enviro.jpg"
+                  alt="A forestry field team reviewing information together in a forest area" loading="lazy"
+                  decoding="async">
+              </figure>
               <div class="focus-panel-content">
                 <p class="focus-panel-short" aria-hidden="true">Environmental Services</p>
                 <h3>Environmental Services</h3>
@@ -317,7 +361,132 @@
         </div>
       </div>
     </section>
+
+    <section class="sustainable-outcomes" id="sustainable-outcomes" aria-labelledby="outcomes-title"
+      data-sustainable-outcomes>
+      <header class="outcomes-intro" data-outcomes-intro>
+        <p class="section-label">Sustainable Outcomes</p>
+        <h2 id="outcomes-title">A forest cannot be managed in parts.</h2>
+        <p class="outcomes-intro-copy">
+          Lasting value depends on the relationship between ecological integrity, community interests, and
+          accountable governance.
+        </p>
+        <span class="outcomes-continuum" aria-hidden="true"></span>
+      </header>
+
+      <div class="outcomes-chapters">
+        <article class="outcome-chapter outcome-environment" data-outcome-chapter>
+          <div class="outcome-chapter-inner">
+            <div class="outcome-text">
+              <p class="outcome-label">Environmental Stewardship</p>
+              <h3>Forests must remain functional to remain valuable.</h3>
+              <p class="outcome-copy">
+                ForestPro supports management decisions that protect biodiversity, ecological functions, and the
+                long-term productivity of forest landscapes.
+              </p>
+            </div>
+            <figure class="outcome-media">
+              <img src="assets/sustainability/image%2036.jpg"
+                alt="A ForestPro boat carrying people across calm coastal waters" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="outcome-chapter outcome-community" data-outcome-chapter>
+          <div class="outcome-chapter-inner">
+            <div class="outcome-text">
+              <p class="outcome-label">Community &amp; Shared Value</p>
+              <h3>Strong forest futures include the people closest to them.</h3>
+              <p class="outcome-copy">
+                ForestPro brings community participation, local knowledge, and livelihood considerations into
+                responsible forest planning, helping align long-term business continuity with the interests of
+                surrounding communities.
+              </p>
+            </div>
+            <figure class="outcome-media">
+              <img src="assets/sustainability/community.jpg"
+                alt="ForestPro representatives and local community members standing together outdoors" loading="lazy"
+                decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="outcome-chapter outcome-governance" data-outcome-chapter>
+          <div class="outcome-chapter-inner">
+            <div class="outcome-text">
+              <p class="outcome-label">Responsible Governance</p>
+              <h3>Sustainability endures when every decision is accountable.</h3>
+              <p class="outcome-copy">
+                Clear planning, regulatory alignment, transparent documentation, and measurable standards help turn
+                sustainability commitments into responsible field practice.
+              </p>
+            </div>
+            <figure class="outcome-media">
+              <img src="assets/sustainability/regulations.jpg"
+                alt="A field professional documenting forest conditions on a clipboard" loading="lazy"
+                decoding="async" />
+            </figure>
+          </div>
+        </article>
+      </div>
+
+      <footer class="outcomes-closing" data-outcomes-closing>
+        <p class="outcomes-closing-statement">Sustainability is how forestry <em>moves forward.</em></p>
+        <div class="outcomes-closing-principles" aria-label="Sustainability dimensions">
+          <span data-outcomes-closing-principle>Environmental stewardship</span>
+          <span data-outcomes-closing-principle>Community &amp; shared value</span>
+          <span data-outcomes-closing-principle>Responsible governance</span>
+        </div>
+      </footer>
+    </section>
+
+    <section class="contact-cta" id="contact" aria-labelledby="contact-cta-title" data-contact-cta>
+      <h2 id="contact-cta-title" data-contact-title>
+        Bring your forest potential into <em>responsible practice.</em>
+      </h2>
+
+      <div class="contact-cta-details" data-contact-details>
+        <p>
+          Talk with ForestPro about regulatory alignment, operational planning, and sustainable implementation for
+          your forest area or land.
+        </p>
+
+        <div class="contact-cta-action-wrap" data-contact-action>
+          <a class="contact-cta-action" href="mailto:contact@forestpro.id?subject=Forestry%20Project%20Discussion">
+            Discuss Your Forestry Project
+          </a>
+
+          <nav class="contact-cta-channels" aria-label="ForestPro contact channels">
+            <a class="contact-cta-channel" href="mailto:contact@forestpro.id">
+              <iconify-icon icon="lucide:mail" aria-hidden="true"></iconify-icon>
+              <span>Email</span>
+              <strong>contact@forestpro.id</strong>
+            </a>
+            <a class="contact-cta-channel" href="https://www.instagram.com/forestpro.id/" target="_blank"
+              rel="noopener noreferrer" aria-label="ForestPro on Instagram, opens in a new tab">
+              <iconify-icon icon="simple-icons:instagram" aria-hidden="true"></iconify-icon>
+              <span>Instagram</span>
+              <strong>@forestpro.id</strong>
+            </a>
+            <a class="contact-cta-channel" href="https://www.linkedin.com/company/forestpro/" target="_blank"
+              rel="noopener noreferrer" aria-label="ForestPro Indonesia on LinkedIn, opens in a new tab">
+              <iconify-icon icon="simple-icons:linkedin" aria-hidden="true"></iconify-icon>
+              <span>LinkedIn</span>
+              <strong>ForestPro Indonesia</strong>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer" data-site-footer>
+    <a class="site-footer-brand" href="#top" aria-label="ForestPro, back to top">
+      <img src="./assets/Logo/Fpr%20-%20Logo%20HiRes.png" alt="ForestPro" />
+    </a>
+    <p>Towards Greener Future</p>
+    <a class="site-footer-top" href="#top">Back to top</a>
+  </footer>
 </body>
 
 </html>
