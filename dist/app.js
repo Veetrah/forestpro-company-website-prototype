@@ -2,16 +2,29 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const wideScene = window.matchMedia('(min-width: 64.0625rem) and (min-height: 44rem)');
 const hero = document.querySelector('[data-scroll-hero]');
 const managementGap = document.querySelector('[data-management-gap]');
+const gapIntro = managementGap?.querySelector('.gap-intro');
+const gapIntroLabel = gapIntro?.querySelector('.section-label');
+const gapIntroTitle = gapIntro?.querySelector('h2');
+const gapIntroContext = gapIntro?.querySelector('.gap-intro-context');
+const gapBeats = [...document.querySelectorAll('[data-gap-beat]')];
 const whoWeAre = document.querySelector('[data-who-we-are]');
 const fieldTeamStory = document.querySelector('[data-field-team-story]');
 const operatingProfile = document.querySelector('[data-operating-profile]');
 const profileRows = [...document.querySelectorAll('[data-profile-row]')];
-const profileFooter = document.querySelector('[data-profile-footer]');
 const ourDirection = document.querySelector('[data-our-direction]');
-const directionReveals = [...document.querySelectorAll('[data-direction-reveal]')];
+const directionVisionFrame = document.querySelector('[data-direction-vision-frame]');
+const directionMissionFrame = document.querySelector('[data-direction-mission-frame]');
+const directionLabel = document.querySelector('[data-direction-label]');
+const directionVisionLabel = document.querySelector('[data-direction-vision-label]');
+const directionVisionTitle = document.querySelector('[data-direction-vision-title]');
+const directionMissionLabel = document.querySelector('[data-direction-mission-label]');
+const directionMissionItems = [...document.querySelectorAll('[data-direction-mission-item]')];
 const directionLine = document.querySelector('[data-direction-line]');
 const corporateValues = document.querySelector('[data-corporate-values]');
-const valuesHeader = document.querySelector('[data-values-header]');
+const valuesFrame = document.querySelector('[data-values-frame]');
+const valuesLabel = document.querySelector('[data-values-label]');
+const valuesTitle = document.querySelector('[data-values-title]');
+const valuesList = document.querySelector('[data-values-list]');
 const valueItems = [...document.querySelectorAll('[data-value-item]')];
 const whatWeDo = document.querySelector('[data-what-we-do]');
 const whatIntro = document.querySelector('[data-what-intro]');
@@ -22,8 +35,8 @@ const focusIntro = document.querySelector('[data-focus-intro]');
 const focusScroll = document.querySelector('[data-focus-scroll]');
 const focusPanelField = document.querySelector('[data-focus-panels]');
 const focusPanels = [...document.querySelectorAll('[data-focus-panel]')];
+const focusStageHeading = document.querySelector('.focus-stage-heading');
 const focusClosing = document.querySelector('[data-focus-closing]');
-const focusFooter = document.querySelector('[data-focus-footer]');
 const sustainableOutcomes = document.querySelector('[data-sustainable-outcomes]');
 const outcomesIntro = document.querySelector('[data-outcomes-intro]');
 const outcomeChapters = [...document.querySelectorAll('[data-outcome-chapter]')];
@@ -106,23 +119,22 @@ const indonesianTranslations = {
   'direction.peopleLabel': 'Sumber Daya Manusia & Masyarakat',
   'direction.peopleCopy': 'Meningkatkan kesejahteraan melalui partisipasi aktif masyarakat dalam pengelolaan hutan.',
   'values.label': 'Nilai Perusahaan',
-  'values.title': 'Prinsip yang memandu cara kami bekerja.',
-  'values.copy': 'Tujuh nilai membentuk cara ForestPro bekerja bersama klien, masyarakat, dan lanskap.',
+  'values.title': 'Prinsip dalam setiap pekerjaan kami.',
   'values.listLabel': 'Nilai perusahaan ForestPro',
   'values.responsibilityTitle': 'Tanggung Jawab',
-  'values.responsibilityCopy': 'Kami mempertimbangkan dampak setiap keputusan terhadap alam dan generasi mendatang.',
+  'values.responsibilityCopy': 'Alam dan generasi mendatang',
   'values.teamworkTitle': 'Kerja Sama',
-  'values.teamworkCopy': 'Kami menciptakan nilai yang lebih besar melalui kolaborasi antarindividu, tim, dan mitra.',
+  'values.teamworkCopy': 'Nilai yang lebih besar melalui kolaborasi',
   'values.integrityTitle': 'Integritas',
-  'values.integrityCopy': 'Kejujuran dan transparansi menjadi dasar setiap hubungan yang kami bangun.',
+  'values.integrityCopy': 'Kejujuran dan transparansi',
   'values.actionTitle': 'Tindakan',
-  'values.actionCopy': 'Kami menerjemahkan komitmen keberlanjutan menjadi kerja nyata di lapangan.',
+  'values.actionCopy': 'Keberlanjutan di lapangan',
   'values.excellenceTitle': 'Keunggulan',
-  'values.excellenceCopy': 'Kami terus meningkatkan cara bekerja dan hasil yang kami berikan.',
+  'values.excellenceCopy': 'Perbaikan yang berkelanjutan',
   'values.nurtureTitle': 'Menumbuhkembangkan',
-  'values.nurtureCopy': 'Kami mengembangkan kapasitas individu dan masyarakat melalui pelatihan dan pemberdayaan.',
+  'values.nurtureCopy': 'Mengembangkan individu dan masyarakat',
   'values.sustainabilityTitle': 'Berkelanjutan',
-  'values.sustainabilityCopy': 'Kami menyeimbangkan kebutuhan hari ini dengan keutuhan alam dalam jangka panjang.',
+  'values.sustainabilityCopy': 'Keseimbangan jangka panjang',
   'what.label': 'Layanan Kami',
   'what.title': 'Tiga kapabilitas. <span>Satu pendekatan yang terintegrasi.</span>',
   'what.copy': 'Dari keputusan strategis awal hingga pelaksanaan lapangan dan sistem kerja yang mendukungnya, ForestPro menyatukan setiap bagian pengelolaan hutan yang bertanggung jawab dalam satu pendekatan.',
@@ -179,6 +191,7 @@ const indonesianTranslations = {
   'outcomes.governanceImageAlt': 'Tenaga profesional lapangan mendokumentasikan kondisi hutan pada papan catatan',
   'outcomes.closing': 'Keberlanjutan adalah cara kehutanan <em>bergerak maju.</em>',
   'outcomes.dimensionsLabel': 'Dimensi keberlanjutan',
+  'chapter.contact': 'Terhubung dengan Kami',
   'contact.title': 'Bawa potensi hutan Anda menuju <em>praktik yang bertanggung jawab.</em>',
   'contact.copy': 'Diskusikan bersama ForestPro mengenai keselarasan regulasi, perencanaan operasional, dan implementasi berkelanjutan untuk kawasan hutan atau lahan Anda.',
   'contact.action': 'Diskusikan Proyek Kehutanan Anda',
@@ -190,6 +203,10 @@ const indonesianTranslations = {
   'footer.index': 'Navigasi',
   'footer.home': 'Beranda',
   'footer.connect': 'Terhubung dengan kami',
+  'footer.emailLabel': 'Kirim email ke ForestPro',
+  'footer.copyright': '© 2024 ForestPro',
+  'footer.affiliation': 'Bagian dari Arara Semesta Group',
+  'footer.affiliationLabel': 'Kunjungi Arara Semesta Group, dibuka di tab baru',
   'footer.country': 'Indonesia',
   'footer.backToTop': 'Kembali ke atas',
 };
@@ -387,6 +404,13 @@ applyLanguage(currentLanguage);
 const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
 const range = (value, start, end) => clamp((value - start) / (end - start));
 
+function setScrollReveal(element, property, progress, distance = 2) {
+  if (!element) return;
+  element.style.setProperty(`--${property}-opacity`, String(progress));
+  element.style.setProperty(`--${property}-y`, `${(1 - progress) * distance}rem`);
+  element.style.setProperty(`--${property}-clip`, `${(1 - progress) * 100}%`);
+}
+
 if (siteNav && siteNavToggle && siteNavToggleLabel && siteNavPanel && siteNavLinks.length) {
   const desktopNavigation = window.matchMedia('(min-width: 64.0625rem)');
   const navSections = [...new Map(siteNavLinks.map((link) => {
@@ -480,10 +504,12 @@ if (siteNav && siteNavToggle && siteNavToggleLabel && siteNavPanel && siteNavLin
   window.addEventListener('resize', requestNavRender);
 }
 
-if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && profileRows.length && profileFooter
+if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && profileRows.length
   && whatWeDo && whatIntro && whatStages.length === 3 && whatNodes.length === 3
-  && focusAreas && focusIntro && focusScroll && focusPanelField && focusPanels.length === 3 && focusClosing
-  && focusFooter && sustainableOutcomes && outcomesIntro && outcomeChapters.length === 3 && outcomesClosing
+  && gapIntro && gapIntroLabel && gapIntroTitle && gapIntroContext && gapBeats.length === 2
+  && focusAreas && focusIntro && focusScroll && focusPanelField && focusPanels.length === 3
+  && focusStageHeading && focusClosing
+  && sustainableOutcomes && outcomesIntro && outcomeChapters.length === 3 && outcomesClosing
   && outcomesClosingPrinciples.length === 3
   && contactCta && contactTitle && contactDetails && contactAction && siteFooter
   && !prefersReducedMotion) {
@@ -516,16 +542,16 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
     } else {
       const heroExit = clamp((viewportHeight * 0.82 - heroBounds.bottom) / (viewportHeight * 0.5));
 
-      document.body.style.setProperty('--hero-headline-x', '0vw');
-      document.body.style.setProperty('--hero-headline-y', `${heroExit * -1.25}rem`);
-      document.body.style.setProperty('--hero-headline-opacity', String(1 - (heroExit * 0.25)));
-      document.body.style.setProperty('--hero-visual-x', '-58%');
-      document.body.style.setProperty('--hero-visual-y', `${heroExit * 1.5}rem`);
-      document.body.style.setProperty('--hero-visual-scale', String(1 - (heroExit * 0.03)));
-      document.body.style.setProperty('--hero-visual-opacity', String(1 - (heroExit * 0.35)));
-      document.body.style.setProperty('--hero-copy-x', '0vw');
-      document.body.style.setProperty('--hero-copy-y', `${heroExit * -0.75}rem`);
-      document.body.style.setProperty('--hero-copy-opacity', String(1 - (heroExit * 0.25)));
+      document.body.style.setProperty('--hero-headline-x', `${heroExit * -6}vw`);
+      document.body.style.setProperty('--hero-headline-y', `${heroExit * -2}rem`);
+      document.body.style.setProperty('--hero-headline-opacity', String(1 - (heroExit * 0.48)));
+      document.body.style.setProperty('--hero-visual-x', `${-50 - (heroExit * 4)}%`);
+      document.body.style.setProperty('--hero-visual-y', `${heroExit * 2.25}rem`);
+      document.body.style.setProperty('--hero-visual-scale', String(1 - (heroExit * 0.06)));
+      document.body.style.setProperty('--hero-visual-opacity', String(1 - (heroExit * 0.56)));
+      document.body.style.setProperty('--hero-copy-x', `${heroExit * 6}vw`);
+      document.body.style.setProperty('--hero-copy-y', `${heroExit * -1.25}rem`);
+      document.body.style.setProperty('--hero-copy-opacity', String(1 - (heroExit * 0.48)));
     }
 
     if (isWideScene) {
@@ -548,6 +574,38 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
       managementGap.style.setProperty('--gap-right-x', `${(1 - comparisonIn) * 12 + (comparisonOut * 6)}vw`);
       managementGap.style.setProperty('--gap-side-y', `${(1 - comparisonIn) * 2 - (comparisonOut * 1.5)}rem`);
       managementGap.style.setProperty('--gap-axis-scale', String(axisIn * (1 - comparisonOut)));
+
+      setScrollReveal(gapIntroLabel, 'gap-label', 1, 1.25);
+      setScrollReveal(gapIntroTitle, 'gap-title', 1, 3);
+      setScrollReveal(gapIntroContext, 'gap-context', 1, 1.5);
+      gapBeats.forEach((beat) => {
+        const beatTitle = beat.querySelector('.gap-side-title');
+        const beatItems = [...beat.querySelectorAll('li')];
+        setScrollReveal(beatTitle, 'gap-side-title', 1, 1.25);
+        beatItems.forEach((item) => setScrollReveal(item, 'gap-item', 1, 1.25));
+      });
+    } else {
+      const elementIn = (element, entry = 0.92, duration = 0.5) => {
+        const bounds = element.getBoundingClientRect();
+        return clamp((viewportHeight * entry - bounds.top) / (viewportHeight * duration));
+      };
+      const introIn = elementIn(gapIntro, 0.92, 0.68);
+
+      setScrollReveal(gapIntroLabel, 'gap-label', range(introIn, 0, 0.3), 1.25);
+      setScrollReveal(gapIntroTitle, 'gap-title', range(introIn, 0.1, 0.72), 3);
+      setScrollReveal(gapIntroContext, 'gap-context', range(introIn, 0.48, 0.96), 1.5);
+
+      gapBeats.forEach((beat) => {
+        const beatIn = elementIn(beat, 0.92, 0.62);
+        const beatTitle = beat.querySelector('.gap-side-title');
+        const beatItems = [...beat.querySelectorAll('li')];
+
+        setScrollReveal(beatTitle, 'gap-side-title', range(beatIn, 0, 0.34), 1.25);
+        beatItems.forEach((item, index) => {
+          const itemIn = range(beatIn, 0.18 + (index * 0.11), 0.58 + (index * 0.11));
+          setScrollReveal(item, 'gap-item', itemIn, 1.25);
+        });
+      });
     }
 
     const whoBounds = whoWeAre.getBoundingClientRect();
@@ -607,49 +665,146 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
     operatingProfile.style.setProperty('--profile-label-opacity', String(profileLabelIn));
     operatingProfile.style.setProperty('--profile-label-y', `${(1 - profileLabelIn) * 1.75}rem`);
 
-    let profileFooterIn = 0;
-    profileRows.forEach((row, index) => {
+    profileRows.forEach((row) => {
       const rowBounds = row.getBoundingClientRect();
       const rowIn = clamp((viewportHeight * 0.94 - rowBounds.top) / (viewportHeight * 0.22));
       row.style.setProperty('--profile-row-opacity', String(rowIn));
       row.style.setProperty('--profile-row-y', `${(1 - rowIn) * 2.75}rem`);
       row.style.setProperty('--profile-line-scale', String(rowIn));
-
-      if (index === profileRows.length - 1) profileFooterIn = rowIn;
     });
 
-    profileFooter.style.setProperty('--profile-footer-opacity', String(profileFooterIn));
-    profileFooter.style.setProperty('--profile-footer-y', `${(1 - profileFooterIn) * 1.25}rem`);
+    if (ourDirection && directionVisionFrame && directionMissionFrame && directionLabel
+      && directionVisionLabel && directionVisionTitle && directionMissionLabel
+      && directionMissionItems.length === 3 && directionLine) {
+      if (isWideScene) {
+        const directionBounds = ourDirection.getBoundingClientRect();
+        const directionScrollableDistance = Math.max(directionBounds.height - viewportHeight, 1);
+        const directionEntry = clamp((viewportHeight - directionBounds.top) / (viewportHeight * 0.78));
+        const directionProgress = clamp(-directionBounds.top / directionScrollableDistance);
+        const visionExit = range(directionProgress, 0.17, 0.29);
 
-    if (ourDirection && directionReveals.length) {
-      directionReveals.forEach((element) => {
-        const elementBounds = element.getBoundingClientRect();
-        const elementIn = clamp((viewportHeight * 0.92 - elementBounds.top) / (viewportHeight * 0.38));
-        element.style.setProperty('--editorial-opacity', String(elementIn));
-        element.style.setProperty('--editorial-y', `${(1 - elementIn) * 2}rem`);
-      });
+        setScrollReveal(directionLabel, 'direction-label', range(directionEntry, 0.02, 0.3), 1.25);
+        setScrollReveal(directionVisionLabel, 'direction-vision-label', range(directionEntry, 0.08, 0.38), 1.25);
+        setScrollReveal(directionVisionTitle, 'direction-title', range(directionEntry, 0.16, 0.88), 3.25);
+        directionVisionFrame.style.setProperty('--direction-frame-opacity', String(1 - visionExit));
+        directionVisionFrame.style.setProperty('--direction-frame-y', `${visionExit * -2.5}rem`);
 
-      if (directionLine) {
-        const lineBounds = directionLine.getBoundingClientRect();
-        const lineIn = clamp((viewportHeight * 0.92 - lineBounds.top) / (viewportHeight * 0.28));
-        directionLine.style.setProperty('--direction-line', String(lineIn));
+        setScrollReveal(directionMissionLabel, 'direction-mission-label', range(directionProgress, 0.25, 0.34), 1.25);
+
+        let directionLineProgress = 0;
+        directionMissionItems.forEach((item, index) => {
+          const lineStart = 0.31 + (index * 0.15);
+          const segmentIn = range(directionProgress, lineStart, lineStart + 0.1);
+          const itemIn = range(directionProgress, lineStart + 0.035, lineStart + 0.14);
+
+          directionLineProgress += segmentIn / directionMissionItems.length;
+          item.style.setProperty('--direction-item-line', String(segmentIn));
+          setScrollReveal(item, 'direction-item', itemIn, 1.75);
+        });
+
+        directionLine.style.setProperty('--direction-line', String(directionLineProgress));
+
+      } else {
+        const directionElementIn = (element, entry = 0.9, duration = 0.42) => {
+          const bounds = element.getBoundingClientRect();
+          return clamp((viewportHeight * entry - bounds.top) / (viewportHeight * duration));
+        };
+
+        directionVisionFrame.style.setProperty('--direction-frame-opacity', '1');
+        directionVisionFrame.style.setProperty('--direction-frame-y', '0rem');
+
+        setScrollReveal(directionLabel, 'direction-label', directionElementIn(directionLabel), 1.25);
+        setScrollReveal(directionVisionLabel, 'direction-vision-label', directionElementIn(directionVisionLabel), 1.25);
+        setScrollReveal(directionVisionTitle, 'direction-title', directionElementIn(directionVisionTitle, 0.92, 0.52), 2.5);
+        setScrollReveal(directionMissionLabel, 'direction-mission-label', directionElementIn(directionMissionLabel), 1.25);
+
+        if (window.innerWidth <= 800) {
+          directionLine.style.setProperty('--direction-line', '1');
+          directionMissionItems.forEach((item) => {
+            const itemIn = directionElementIn(item, 0.92, 0.42);
+            item.style.setProperty('--direction-item-line', String(itemIn));
+            setScrollReveal(item, 'direction-item', itemIn, 1.5);
+          });
+        } else {
+          const missionBaseIn = directionElementIn(directionMissionFrame, 0.92, 0.62);
+          let directionLineProgress = 0;
+
+          directionMissionItems.forEach((item, index) => {
+            const segmentIn = range(missionBaseIn, index * 0.22, 0.42 + (index * 0.22));
+            directionLineProgress += segmentIn / directionMissionItems.length;
+            item.style.setProperty('--direction-item-line', String(segmentIn));
+            setScrollReveal(item, 'direction-item', segmentIn, 1.5);
+          });
+
+          directionLine.style.setProperty('--direction-line', String(directionLineProgress));
+        }
       }
     }
 
-    if (corporateValues && valuesHeader && valueItems.length) {
-      const valuesHeaderBounds = valuesHeader.getBoundingClientRect();
-      const valuesHeaderIn = clamp((viewportHeight * 0.92 - valuesHeaderBounds.top) / (viewportHeight * 0.5));
-      valuesHeader.style.setProperty('--values-opacity', String(valuesHeaderIn));
-      valuesHeader.style.setProperty('--values-y', `${(1 - valuesHeaderIn) * 3}rem`);
+    if (corporateValues && valuesFrame && valuesLabel && valuesTitle && valuesList && valueItems.length === 7) {
+      if (isWideScene) {
+        const valuesBounds = corporateValues.getBoundingClientRect();
+        const valuesScrollableDistance = Math.max(valuesBounds.height - viewportHeight, 1);
+        const valuesEntry = clamp((viewportHeight - valuesBounds.top) / (viewportHeight * 0.78));
+        const valuesProgress = clamp(-valuesBounds.top / valuesScrollableDistance);
+        const valuesFrameExit = range(valuesProgress, 0.17, 0.29);
 
-      valueItems.forEach((item, index) => {
-        const itemBounds = item.getBoundingClientRect();
-        const itemIn = clamp((viewportHeight * 0.93 - itemBounds.top) / (viewportHeight * 0.32));
-        const staggeredIn = range(itemIn, Math.min((index % 2) * 0.12, 0.12), 1);
-        item.style.setProperty('--value-opacity', String(staggeredIn));
-        item.style.setProperty('--value-y', `${(1 - staggeredIn) * 2.25}rem`);
-        item.style.setProperty('--editorial-line', String(staggeredIn));
-      });
+        setScrollReveal(valuesLabel, 'values-label', range(valuesEntry, 0.02, 0.3), 1.25);
+        setScrollReveal(valuesTitle, 'values-title', range(valuesEntry, 0.14, 0.88), 3);
+        valuesFrame.style.setProperty('--values-frame-opacity', String(1 - valuesFrameExit));
+        valuesFrame.style.setProperty('--values-frame-y', `${valuesFrameExit * -2.5}rem`);
+
+        let valuesPrimaryLineProgress = 0;
+        let valuesSecondaryLineProgress = 0;
+        valueItems.forEach((item, index) => {
+          const lineStart = 0.31 + (index * 0.075);
+          const segmentIn = range(valuesProgress, lineStart, lineStart + 0.035);
+          const itemIn = range(valuesProgress, lineStart + 0.02, lineStart + 0.065);
+
+          if (index < 4) valuesPrimaryLineProgress += segmentIn / 4;
+          else valuesSecondaryLineProgress += segmentIn / 3;
+          item.style.setProperty('--value-line', String(segmentIn));
+          setScrollReveal(item, 'value', itemIn, 1.5);
+        });
+
+        valuesList.style.setProperty('--values-line', String(valuesPrimaryLineProgress));
+        valuesList.style.setProperty('--values-secondary-line', String(valuesSecondaryLineProgress));
+      } else {
+        const valuesElementIn = (element, entry = 0.92, duration = 0.42) => {
+          const bounds = element.getBoundingClientRect();
+          return clamp((viewportHeight * entry - bounds.top) / (viewportHeight * duration));
+        };
+
+        valuesFrame.style.setProperty('--values-frame-opacity', '1');
+        valuesFrame.style.setProperty('--values-frame-y', '0rem');
+        setScrollReveal(valuesLabel, 'values-label', valuesElementIn(valuesLabel), 1.25);
+        setScrollReveal(valuesTitle, 'values-title', valuesElementIn(valuesTitle, 0.92, 0.5), 2.5);
+
+        if (window.innerWidth <= 800) {
+          valuesList.style.setProperty('--values-line', '1');
+          valuesList.style.setProperty('--values-secondary-line', '1');
+          valueItems.forEach((item) => {
+            const itemIn = valuesElementIn(item, 0.94, 0.4);
+            item.style.setProperty('--value-line', String(itemIn));
+            setScrollReveal(item, 'value', itemIn, 1.25);
+          });
+        } else {
+          const valuesBaseIn = valuesElementIn(valuesList, 0.92, 0.72);
+          let valuesPrimaryLineProgress = 0;
+          let valuesSecondaryLineProgress = 0;
+
+          valueItems.forEach((item, index) => {
+            const segmentIn = range(valuesBaseIn, index * 0.1, 0.3 + (index * 0.1));
+            if (index < 4) valuesPrimaryLineProgress += segmentIn / 4;
+            else valuesSecondaryLineProgress += segmentIn / 3;
+            item.style.setProperty('--value-line', String(segmentIn));
+            setScrollReveal(item, 'value', segmentIn, 1.25);
+          });
+
+          valuesList.style.setProperty('--values-line', String(valuesPrimaryLineProgress));
+          valuesList.style.setProperty('--values-secondary-line', String(valuesSecondaryLineProgress));
+        }
+      }
     }
 
     const whatBounds = whatWeDo.getBoundingClientRect();
@@ -688,9 +843,6 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
         whatNodes[index].style.setProperty('--what-node-opacity', String(0.32 + (stagePresence * 0.68)));
       });
 
-      const whatFooterIn = range(whatProgress, 0.88, 0.97);
-      whatWeDo.style.setProperty('--what-footer-opacity', String(whatFooterIn));
-      whatWeDo.style.setProperty('--what-footer-y', `${(1 - whatFooterIn) * 1.25}rem`);
     } else {
       const introBounds = whatIntro.getBoundingClientRect();
       const introIn = clamp((viewportHeight * 0.9 - introBounds.top) / (viewportHeight * 0.52));
@@ -700,19 +852,14 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
       whatWeDo.style.setProperty('--what-intro-clip', `${(1 - introIn) * 100}%`);
       whatWeDo.style.setProperty('--what-mark-opacity', String(introIn * 0.09));
 
-      let finalStageIn = 0;
-      whatStages.forEach((stage, index) => {
+      whatStages.forEach((stage) => {
         const stageBounds = stage.getBoundingClientRect();
         const stageIn = clamp((viewportHeight * 0.9 - stageBounds.top) / (viewportHeight * 0.42));
 
         stage.style.setProperty('--what-stage-opacity', String(stageIn));
         stage.style.setProperty('--what-stage-y', `${(1 - stageIn) * 3}rem`);
         stage.style.setProperty('--what-stage-clip', `${(1 - stageIn) * 100}%`);
-        if (index === whatStages.length - 1) finalStageIn = stageIn;
       });
-
-      whatWeDo.style.setProperty('--what-footer-opacity', String(finalStageIn));
-      whatWeDo.style.setProperty('--what-footer-y', `${(1 - finalStageIn) * 1.25}rem`);
     }
 
     const focusIntroBounds = focusIntro.getBoundingClientRect();
@@ -725,6 +872,11 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
     focusAreas.style.setProperty('--focus-copy-opacity', String(focusCopyIn));
     focusAreas.style.setProperty('--focus-copy-y', `${(1 - focusCopyIn) * 2}rem`);
 
+    const focusStageBounds = focusStageHeading.getBoundingClientRect();
+    const focusStageIn = clamp((viewportHeight * 0.92 - focusStageBounds.top) / (viewportHeight * 0.36));
+    focusStageHeading.style.setProperty('--focus-stage-opacity', String(focusStageIn));
+    focusStageHeading.style.setProperty('--focus-stage-y', `${(1 - focusStageIn) * 1.25}rem`);
+
     if (isWideScene) {
       const focusBounds = focusScroll.getBoundingClientRect();
       const focusScrollableDistance = Math.max(focusBounds.height - viewportHeight, 1);
@@ -734,6 +886,11 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
         const presence = clamp(1 - Math.abs(focusPosition - index));
         const detailPresence = clamp(1 - (Math.abs(focusPosition - index) * 1.4));
 
+        panel.style.removeProperty('--focus-index-opacity');
+        panel.style.removeProperty('--focus-title-opacity');
+        panel.style.removeProperty('--focus-title-y');
+        panel.style.removeProperty('--focus-media-clip');
+        panel.style.removeProperty('--focus-media-scale');
         panel.style.setProperty('--focus-active', String(presence));
         panel.style.setProperty('--focus-detail-opacity', String(detailPresence));
         return `${(1 + (presence * 4)).toFixed(3)}fr`;
@@ -742,27 +899,29 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
       focusPanelField.style.setProperty('--focus-columns', focusWeights.join(' '));
 
       const focusClosingIn = range(focusProgress, 0.83, 0.94);
-      const focusFooterIn = range(focusProgress, 0.9, 0.98);
       focusAreas.style.setProperty('--focus-closing-opacity', String(focusClosingIn));
       focusAreas.style.setProperty('--focus-closing-y', `${(1 - focusClosingIn) * 1.25}rem`);
-      focusAreas.style.setProperty('--focus-footer-opacity', String(focusFooterIn));
-      focusAreas.style.setProperty('--focus-footer-y', `${(1 - focusFooterIn) * 1.25}rem`);
     } else {
-      let finalFocusIn = 0;
-
-      focusPanels.forEach((panel, index) => {
+      focusPanels.forEach((panel) => {
         const panelBounds = panel.getBoundingClientRect();
         const panelIn = clamp((viewportHeight * 0.9 - panelBounds.top) / (viewportHeight * 0.44));
+        const mediaIn = range(panelIn, 0, 0.58);
+        const titleIn = range(panelIn, 0.18, 0.76);
+        const detailIn = range(panelIn, 0.48, 1);
 
-        panel.style.setProperty('--focus-active', String(panelIn));
-        panel.style.setProperty('--focus-detail-opacity', String(panelIn));
-        if (index === focusPanels.length - 1) finalFocusIn = panelIn;
+        panel.style.setProperty('--focus-active', String(titleIn));
+        panel.style.setProperty('--focus-index-opacity', String(range(panelIn, 0, 0.32)));
+        panel.style.setProperty('--focus-title-opacity', String(titleIn));
+        panel.style.setProperty('--focus-title-y', `${(1 - titleIn) * 1.5}rem`);
+        panel.style.setProperty('--focus-detail-opacity', String(detailIn));
+        panel.style.setProperty('--focus-media-clip', `${(1 - mediaIn) * 100}%`);
+        panel.style.setProperty('--focus-media-scale', String(1.06 - (mediaIn * 0.06)));
       });
 
-      focusAreas.style.setProperty('--focus-closing-opacity', String(finalFocusIn));
-      focusAreas.style.setProperty('--focus-closing-y', `${(1 - finalFocusIn) * 1.25}rem`);
-      focusAreas.style.setProperty('--focus-footer-opacity', String(finalFocusIn));
-      focusAreas.style.setProperty('--focus-footer-y', `${(1 - finalFocusIn) * 1.25}rem`);
+      const focusClosingBounds = focusClosing.getBoundingClientRect();
+      const focusClosingIn = clamp((viewportHeight * 0.92 - focusClosingBounds.top) / (viewportHeight * 0.46));
+      focusAreas.style.setProperty('--focus-closing-opacity', String(focusClosingIn));
+      focusAreas.style.setProperty('--focus-closing-y', `${(1 - focusClosingIn) * 1.75}rem`);
     }
 
     const outcomesIntroBounds = outcomesIntro.getBoundingClientRect();
@@ -785,7 +944,11 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
       const chapterLabelIn = range(chapterIn, 0, 0.28);
       const chapterTitleIn = range(chapterIn, 0.1, 0.7);
       const chapterCopyIn = range(chapterIn, 0.42, 0.94);
-      const chapterMediaIn = range(chapterIn, 0.22, 0.82);
+      const chapterMedia = chapter.querySelector('.outcome-media');
+      const chapterMediaBounds = chapterMedia?.getBoundingClientRect();
+      const chapterMediaIn = window.innerWidth <= 704 && chapterMediaBounds
+        ? clamp((viewportHeight * 0.92 - chapterMediaBounds.top) / (viewportHeight * 0.58))
+        : range(chapterIn, 0.22, 0.82);
 
       chapter.style.setProperty('--outcome-label-opacity', String(chapterLabelIn));
       chapter.style.setProperty('--outcome-label-y', `${(1 - chapterLabelIn) * 1.5}rem`);
@@ -833,12 +996,15 @@ if (hero && managementGap && whoWeAre && fieldTeamStory && operatingProfile && p
     const footerIn = clamp((viewportHeight * 0.94 - footerBounds.top) / (viewportHeight * 0.5));
     siteFooter.style.setProperty('--site-footer-rule', String(range(footerIn, 0, 0.42)));
 
-    [siteFooterBrand, ...siteFooterGroups, siteFooterMeta].forEach((element) => {
+    [siteFooterBrand, ...siteFooterGroups].forEach((element) => {
       const elementBounds = element.getBoundingClientRect();
       const elementIn = clamp((viewportHeight * 0.94 - elementBounds.top) / (viewportHeight * 0.38));
       element.style.setProperty('--site-footer-opacity', String(elementIn));
       element.style.setProperty('--site-footer-y', `${(1 - elementIn) * 1.5}rem`);
     });
+
+    siteFooterMeta.style.setProperty('--site-footer-opacity', '1');
+    siteFooterMeta.style.setProperty('--site-footer-y', '0rem');
   }
 
   function requestRender() {
