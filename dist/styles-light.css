@@ -1669,6 +1669,47 @@ body.nav-open .chapter-rail {
   }
 }
 
+@media (min-width: 50.0625rem) and (max-width: 64rem) {
+  .hero {
+    min-height: 100svh;
+    grid-template-columns: minmax(17rem, 0.72fr) minmax(24rem, 1.28fr);
+    grid-template-rows: auto minmax(3rem, 1fr) auto;
+    align-items: start;
+    padding: 7rem 0 3rem;
+  }
+
+  .hero-headline {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .hero h1 {
+    max-width: 7ch;
+    font-size: clamp(4.25rem, 7.7vw, 5.4rem);
+  }
+
+  .wildlife-visual {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    align-self: end;
+    width: min(66vw, 46rem);
+    margin-bottom: -1rem;
+  }
+
+  .wildlife-visual img {
+    max-height: min(65svh, 46rem);
+  }
+
+  .hero-copy {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: end;
+    max-width: 20rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
 @media (min-width: 50.0625rem) and (max-width: 64rem),
 (min-width: 50.0625rem) and (max-height: 43.99rem) {
   .gap-scroll {
@@ -2802,6 +2843,30 @@ body.nav-open .chapter-rail {
 
 }
 
+@media (max-width: 23.75rem) {
+  .direction-vision h2 {
+    font-size: clamp(2.15rem, 10vw, 2.4rem);
+    line-height: 1;
+  }
+
+  .direction-mission {
+    margin-top: 4.25rem;
+  }
+
+  .direction-mission-list article {
+    padding: 2rem 0 2.35rem;
+  }
+
+  .direction-mission-list h3 {
+    font-size: clamp(1.25rem, 5.8vw, 1.4rem);
+    line-height: 1.32;
+  }
+
+  .values-header h2 {
+    font-size: clamp(2.25rem, 10.5vw, 2.5rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .our-direction {
     height: auto;
@@ -3703,6 +3768,9 @@ body.nav-open .chapter-rail {
     grid-template-columns: 1.1rem minmax(4.75rem, 0.65fr) minmax(0, 1.35fr);
   }
 
+}
+
+@media (max-width: 64rem) {
   .site-footer {
     overflow: visible;
   }
