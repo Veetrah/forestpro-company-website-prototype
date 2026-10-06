@@ -64,7 +64,9 @@ h1,
 h2,
 h3,
 .operating-profile-facts dd {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 
 a {
@@ -2864,6 +2866,41 @@ body.nav-open .chapter-rail {
 
   .values-header h2 {
     font-size: clamp(2.25rem, 10.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 50rem) {
+  html[lang="id"] .what-stage h3 {
+    font-size: clamp(2.25rem, 9vw, 4.25rem);
+  }
+
+  html[lang="id"] .values-list [data-value-item],
+  html[lang="id"] .values-list [data-value-item]:last-child {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    column-gap: 0.85rem;
+  }
+
+  html[lang="id"] .values-list h3 {
+    overflow-wrap: normal;
+    font-size: clamp(1rem, 4.6vw, 1.3rem);
+  }
+}
+
+@media (max-width: 44rem) {
+  html[lang="id"] .outcome-chapter h3 {
+    font-size: clamp(2.35rem, 9.5vw, 3.5rem);
+  }
+}
+
+@media (min-width: 44.0625rem) and (max-width: 50rem) {
+  html .outcome-chapter h3 {
+    font-size: clamp(3rem, 6.4vw, 3.25rem);
+  }
+}
+
+@media (min-width: 50.0625rem) and (max-width: 64rem) {
+  html .outcome-chapter h3 {
+    font-size: clamp(3.1rem, 7vw, 5.1rem);
   }
 }
 

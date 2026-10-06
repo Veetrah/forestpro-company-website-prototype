@@ -186,7 +186,7 @@ const indonesianTranslations = {
   'outcomes.communityCopy': 'ForestPro memasukkan partisipasi masyarakat, pengetahuan lokal, dan pertimbangan mata pencaharian ke dalam perencanaan hutan yang bertanggung jawab. Pendekatan ini membantu menyelaraskan keberlanjutan usaha jangka panjang dengan kepentingan masyarakat sekitar.',
   'outcomes.communityImageAlt': 'Perwakilan ForestPro dan masyarakat setempat berdiri bersama di ruang terbuka',
   'outcomes.governanceLabel': 'Tata Kelola Bertanggung Jawab',
-  'outcomes.governanceTitle': 'Keberlanjutan bertahan ketika setiap keputusan dapat dipertanggungjawabkan.',
+  'outcomes.governanceTitle': 'Keberlanjutan bertahan ketika setiap keputusan dibuat secara bertanggung jawab.',
   'outcomes.governanceCopy': 'Perencanaan yang jelas, keselarasan regulasi, dokumentasi yang transparan, dan standar yang terukur membantu menerjemahkan komitmen keberlanjutan menjadi praktik lapangan yang bertanggung jawab.',
   'outcomes.governanceImageAlt': 'Tenaga profesional lapangan mendokumentasikan kondisi hutan pada papan catatan',
   'outcomes.closing': 'Keberlanjutan adalah cara kehutanan <em>bergerak maju.</em>',
